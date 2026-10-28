@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #5A1D16;
+  --primary-hover: #6B241A;
+  --gold: #E9B13A;
+  --gold-hover: #D89F28;
+  --dark: #3D221B;
+  --body: #6F6864;
+  --cream: #FFF8F5;
+  --white: #FFFFFF;
+  --border-light: rgba(90, 29, 22, 0.12);
+}
+
+@theme {
+  --color-brand-burgundy: #5A1D16;
+  --color-brand-maroon: #6B241A;
+  --color-brand-gold: #E9B13A;
+  --color-brand-gold-hover: #D89F28;
+  --color-brand-dark: #3D221B;
+  --color-brand-body: #6F6864;
+  --color-brand-cream: #FFF8F5;
+  --color-brand-whatsapp: #25D366;
+  --font-sans: var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #6F6864;
+  font-family: var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Luxury animations */
+@keyframes pulseSubtle {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-whatsapp {
+  animation: pulseSubtle 2.5s infinite ease-in-out;
+}
+
+/* Seamless Floating Marquee Animations */
+@keyframes marqueeLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeRight 42s linear infinite;
+  will-change: transform;
+}
+
+.pause-on-hover:hover {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none !important;
+    overflow-x: auto;
+  }
+}

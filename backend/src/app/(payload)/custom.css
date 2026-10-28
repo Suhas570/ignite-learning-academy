@@ -1,0 +1,34 @@
+/* Media Collection UX Hardening:
+   Position Media Type as the very first field, followed by Video URL (when Video is selected),
+   followed by the file upload dropzone, followed by Title, Description, and other details.
+*/
+
+.collection-edit--media .document-fields__edit {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.collection-edit--media .document-fields__fields {
+  display: contents !important;
+}
+
+.collection-edit--media #field-mediaType,
+.collection-edit--media .field-type[id="field-mediaType"] {
+  order: 1 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.collection-edit--media .field-type:has(input[name="videoUrl"]),
+.collection-edit--media #field-videoUrl {
+  order: 2 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.collection-edit--media .field-type.file-field {
+  order: 3 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.collection-edit--media .document-fields__fields > * {
+  order: 4 !important;
+}

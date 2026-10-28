@@ -1,0 +1,40 @@
+id: root
+title: ignite-learning-academy
+description: Project requirements and description tree
+createdAt: 2026-10-23T09:09:47.645Z
+children:
+  - id: node_mvkr143k_ilbya
+    title: "Day 2: PostgreSQL Schema & Core Payload Collections Architecture"
+    description: Define foundational Payload CMS collections (Users with RBAC roles, Courses, Categories, Media uploads with Cloudinary), configure PostgreSQL indexes, and verify Admin schema generation.
+    createdAt: 2026-10-23 09:09:29
+    children: []
+  - id: node_mvkr143k_m9a6e
+    title: "Day 3: Authentication, RBAC & Student/Instructor User Management"
+    description: Implement JWT-based authentication, user registration, role-based access control policies (Admin, Instructor, Student), password reset workflows, and Resend transactional email integration.
+    createdAt: 2026-10-23 09:09:29
+    children: []
+  - id: node_mvkr143k_8sorx
+    title: "Day 4: Course Management, Curriculum Structure & Enrollment APIs"
+    description: Build Lessons, Modules, and Quizzes collections with relationships. Implement student course enrollment, progress tracking, and REST/GraphQL API endpoints for frontend consumption.
+    createdAt: 2026-10-23 09:09:29
+    children: []
+  - id: node_mvkr143k_k7zsk
+    title: "Day 5: Frontend Design System & Responsive Component Library"
+    description: Establish unified design tokens in Tailwind CSS, build accessible navigation header, responsive footer, card components, course badges, and interactive modals.
+    createdAt: 2026-10-23 09:09:29
+    children: []
+  - id: node_mvkr143k_2dzpt
+    title: "Day 6: Public Course Catalog, Details Pages & Student Dashboard"
+    description: "Assemble Next.js App Router public pages: Homepage showcase, searchable course catalog with category filters, dynamic course details (/courses/[slug]), and authenticated student dashboard."
+    createdAt: 2026-10-23 09:09:29
+    children: []
+  - id: node_mvkr143k_k7jla
+    title: "Day 7: Cloudinary Media Storage & Transactional Resend Emails"
+    description: Connect Cloudinary plugin for optimized asset delivery, thumbnail transformations, and configure Resend API for welcome emails, enrollment confirmations, and course completion certificates.
+    createdAt: 2026-10-23 09:09:29
+    children: []
+  - id: node_mvkr143k_vu3ye
+    title: "Day 8: End-to-End Verification, Performance Optimization & Monorepo Hardening"
+    description: Run end-to-end user journeys (enrollment to completion), benchmark page load times, audit TypeScript types across packages, configure CI linting scripts, and final production checklist.
+    createdAt: 2026-10-23 09:09:29
+    children: []

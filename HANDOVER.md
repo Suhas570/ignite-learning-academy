@@ -195,3 +195,4 @@ For server maintenance, domain configuration, or code modifications, reach out t
 - **Repository**: [https://github.com/Suhas570/ignite-learning-academy](https://github.com/Suhas570/ignite-learning-academy)
 - **Deployment Environments**: Render (Backend & API) + Netlify (Frontend CDN)
 - **Primary Support Contact**: `ignitelearningacademy8@gmail.com`
+

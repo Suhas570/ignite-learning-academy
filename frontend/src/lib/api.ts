@@ -93,7 +93,11 @@ export function extractInstagramShortcode(url?: string): { shortcode: string; ty
 export function getVideoThumbnail(item: MediaItem): string {
   // 1. If explicit thumbnailURL is provided by backend
   if (item.thumbnailURL) {
-    return resolveMediaUrl(item.thumbnailURL);
+    const rawThumb = item.thumbnailURL;
+    if (rawThumb.startsWith("/api/media/file/") && rawThumb.endsWith(".jpg")) {
+      return resolveMediaUrl(rawThumb.replace("/api/media/file/", "/api/media/thumbnail/"));
+    }
+    return resolveMediaUrl(rawThumb);
   }
 
   // 2. If coverImage is provided (string or object)

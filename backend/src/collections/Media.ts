@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { triggerFrontendRevalidation } from '../utilities/revalidateFrontend'
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -296,6 +297,20 @@ export const Media: CollectionConfig = {
           }
         }
         return doc
+      },
+    ],
+    afterChange: [
+      () => {
+        triggerFrontendRevalidation({ tag: 'media', path: '/gallery' })
+        triggerFrontendRevalidation({ path: '/videos' })
+        triggerFrontendRevalidation({ path: '/' })
+      },
+    ],
+    afterDelete: [
+      () => {
+        triggerFrontendRevalidation({ tag: 'media', path: '/gallery' })
+        triggerFrontendRevalidation({ path: '/videos' })
+        triggerFrontendRevalidation({ path: '/' })
       },
     ],
   },

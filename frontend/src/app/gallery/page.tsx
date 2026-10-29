@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { PageHero } from "@/components/ui/PageHero";
 import { GalleryNavToggle } from "@/components/gallery/GalleryNavToggle";
-import { resolveMediaUrl } from "@/lib/api";
+import { getPublishedPhotos, resolveMediaUrl } from "@/lib/api";
 import { PhotoGalleryView } from "@/components/gallery/PhotoGalleryView";
 import { CHILDREN_GALLERY_PHOTOS } from "@/data/galleryPhotos";
 
@@ -17,7 +17,11 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 export default async function GalleryPage() {
-  const photos = CHILDREN_GALLERY_PHOTOS;
+  const publishedPhotos = await getPublishedPhotos();
+  const photos =
+    publishedPhotos && publishedPhotos.length > 0
+      ? publishedPhotos
+      : CHILDREN_GALLERY_PHOTOS;
 
   // JSON-LD ImageGallery Schema
   const jsonLd = {

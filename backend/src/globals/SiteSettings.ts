@@ -1,4 +1,5 @@
 import type { GlobalConfig } from 'payload'
+import { triggerFrontendRevalidation } from '../utilities/revalidateFrontend'
 
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
@@ -8,6 +9,13 @@ export const SiteSettings: GlobalConfig = {
     read: () => true,
     // Authenticated admin only can update settings
     update: ({ req: { user } }) => Boolean(user),
+  },
+  hooks: {
+    afterChange: [
+      () => {
+        triggerFrontendRevalidation({ tag: 'site-settings', path: '/' })
+      },
+    ],
   },
   fields: [
     {

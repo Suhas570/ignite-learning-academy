@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { triggerFrontendRevalidation } from '../utilities/revalidateFrontend'
 
 function slugify(text: string): string {
   return text
@@ -46,6 +47,25 @@ export const Courses: CollectionConfig = {
           }
         }
         return data
+      },
+    ],
+    afterChange: [
+      ({ doc, previousDoc }) => {
+        triggerFrontendRevalidation({ tag: 'courses', path: '/courses' })
+        if (doc?.slug) {
+          triggerFrontendRevalidation({ path: `/courses/${doc.slug}` })
+        }
+        if (previousDoc?.slug && previousDoc.slug !== doc?.slug) {
+          triggerFrontendRevalidation({ path: `/courses/${previousDoc.slug}` })
+        }
+      },
+    ],
+    afterDelete: [
+      ({ doc }) => {
+        triggerFrontendRevalidation({ tag: 'courses', path: '/courses' })
+        if (doc?.slug) {
+          triggerFrontendRevalidation({ path: `/courses/${doc.slug}` })
+        }
       },
     ],
   },

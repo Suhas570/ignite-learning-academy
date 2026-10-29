@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { getSiteSettings } from "@/lib/api";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -18,18 +19,23 @@ export const metadata: Metadata = {
     "Government-certified Nursery Teacher Training (NTT) Diploma, Montessori workshops, and child psychology training in Bangalore.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteSettings = await getSiteSettings();
+  const whatsappNumber = siteSettings?.whatsappNumber
+    ? String(siteSettings.whatsappNumber).replace(/[^0-9]/g, "")
+    : undefined;
+
   return (
     <html lang="en" className={plusJakarta.variable} suppressHydrationWarning>
       <body className="font-sans min-h-screen flex flex-col bg-white text-[#6F6864] antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <WhatsAppButton />
+        <WhatsAppButton initialNumber={whatsappNumber} />
       </body>
     </html>
   );

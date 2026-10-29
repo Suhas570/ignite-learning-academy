@@ -4,8 +4,14 @@ import React, { useState, useEffect } from "react";
 
 const FALLBACK_WHATSAPP_NUMBER = "9011901930";
 
-export const WhatsAppButton: React.FC = () => {
-  const [whatsappNumber, setWhatsappNumber] = useState<string>(FALLBACK_WHATSAPP_NUMBER);
+interface WhatsAppButtonProps {
+  initialNumber?: string;
+}
+
+export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ initialNumber }) => {
+  const [whatsappNumber, setWhatsappNumber] = useState<string>(
+    initialNumber || FALLBACK_WHATSAPP_NUMBER
+  );
 
   useEffect(() => {
     let isMounted = true;

@@ -136,7 +136,7 @@ export async function getPublishedPhotos(): Promise<MediaItem[]> {
     });
 
     const res = await fetch(`${API_BASE_URL}/api/media?${query.toString()}`, {
-      next: { revalidate: 60 },
+      next: { revalidate: 60, tags: ['media'] },
     });
 
     if (!res.ok) {
@@ -166,7 +166,7 @@ export async function getPublishedVideos(): Promise<MediaItem[]> {
     });
 
     const res = await fetch(`${API_BASE_URL}/api/media?${query.toString()}`, {
-      next: { revalidate: 60 },
+      next: { revalidate: 60, tags: ['media'] },
     });
 
     if (!res.ok) {
@@ -204,7 +204,7 @@ export async function getMediaByCategory(category: string): Promise<MediaItem[]>
 
     const query = new URLSearchParams(params);
     const res = await fetch(`${API_BASE_URL}/api/media?${query.toString()}`, {
-      next: { revalidate: 60 },
+      next: { revalidate: 60, tags: ['media'] },
     });
 
     if (!res.ok) {
@@ -225,7 +225,7 @@ export async function getMediaByCategory(category: string): Promise<MediaItem[]>
 export async function getSiteSettings(): Promise<SiteSettings | null> {
   try {
     const res = await fetch(`${API_BASE_URL}/api/globals/site-settings`, {
-      next: { revalidate: 60 },
+      next: { revalidate: 60, tags: ['site-settings'] },
     });
 
     if (!res.ok) {
@@ -253,7 +253,7 @@ export async function getCampusLifeVideos(limit = 4): Promise<MediaItem[]> {
     });
 
     const res = await fetch(`${API_BASE_URL}/api/media?${query.toString()}`, {
-      next: { revalidate: 60 },
+      next: { revalidate: 60, tags: ['media'] },
     });
 
     if (res.ok) {
@@ -340,7 +340,7 @@ export async function getCourses(): Promise<Course[]> {
     });
 
     const res = await fetch(`${API_BASE_URL}/api/courses?${query.toString()}`, {
-      next: { revalidate: 60 },
+      next: { revalidate: 60, tags: ['courses'] },
     });
 
     if (res.ok) {
@@ -368,7 +368,7 @@ export async function getCourseBySlug(slug: string): Promise<Course | undefined>
     });
 
     const res = await fetch(`${API_BASE_URL}/api/courses?${query.toString()}`, {
-      next: { revalidate: 60 },
+      next: { revalidate: 60, tags: ['courses', 'course-' + slug] },
     });
 
     if (res.ok) {
@@ -386,7 +386,7 @@ export async function getCourseBySlug(slug: string): Promise<Course | undefined>
         limit: "1",
       });
       const aliasRes = await fetch(`${API_BASE_URL}/api/courses?${aliasQuery.toString()}`, {
-        next: { revalidate: 60 },
+        next: { revalidate: 60, tags: ['courses', 'course-' + slug] },
       });
       if (aliasRes.ok) {
         const aliasData = await aliasRes.json();

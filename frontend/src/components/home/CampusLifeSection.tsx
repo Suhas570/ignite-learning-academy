@@ -72,7 +72,7 @@ export const CampusLifeSection: React.FC<CampusLifeSectionProps> = ({ videos }) 
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 brightness-95"
-                    unoptimized={thumbUrl.includes("localhost") || thumbUrl.includes("127.0.0.1") || thumbUrl.startsWith("/api/")}
+                    unoptimized
                   />
 
                   {/* Dark Vignette Overlay */}

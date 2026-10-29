@@ -68,7 +68,7 @@ export const Lightbox: React.FC<LightboxProps> = ({ item, onClose }) => {
             sizes="90vw"
             className="object-contain p-2"
             priority
-            unoptimized={fullImageUrl.startsWith("http://localhost") || fullImageUrl.startsWith("http://127.0.0.1")}
+            unoptimized
           />
         </div>
 

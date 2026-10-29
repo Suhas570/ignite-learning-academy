@@ -62,7 +62,7 @@ export const MediaCard: React.FC<MediaCardProps> = ({
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           priority={priority}
-          unoptimized={displayThumbnail.includes("localhost") || displayThumbnail.includes("127.0.0.1") || displayThumbnail.startsWith("/api/")}
+          unoptimized
           onError={() => setImageError(true)}
         />
 

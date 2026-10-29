@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build --experimental-build-mode compile",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 3000",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
@@ -19,6 +19,9 @@
     "@payloadcms/plugin-cloud-storage": "^3.92.0",
     "@payloadcms/richtext-lexical": "^3.92.0",
     "@payloadcms/ui": "^3.92.0",
+    "@types/node": "^22.13.0",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.0",
     "cloudinary": "^2.11.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
@@ -27,12 +30,8 @@
     "payload": "^3.92.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "sharp": "^0.33.5"
-  },
-  "devDependencies": {
-    "@types/node": "^22.13.0",
-    "@types/react": "19.1.0",
-    "@types/react-dom": "19.1.0",
+    "sharp": "^0.33.5",
     "typescript": "^5.7.3"
-  }
+  },
+  "devDependencies": {}
 }

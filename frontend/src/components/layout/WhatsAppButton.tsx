@@ -45,7 +45,7 @@ export const WhatsAppButton: React.FC = () => {
 
   return (
     <aside
-      className="fixed bottom-6 right-6 z-50"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
       aria-label="Direct messaging and contact support"
     >
       <a
@@ -54,11 +54,11 @@ export const WhatsAppButton: React.FC = () => {
         rel="noopener noreferrer"
         aria-label="Chat with Ignite Learning Academy on WhatsApp (opens in a new tab)"
         id="btnWhatsAppFloating"
-        className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 animate-whatsapp focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40"
+        className="group relative flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 animate-whatsapp focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40"
       >
         {/* WhatsApp SVG Icon */}
         <svg
-          className="w-8 h-8 sm:w-9 sm:h-9 fill-current"
+          className="w-7 h-7 sm:w-9 sm:h-9 fill-current"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"

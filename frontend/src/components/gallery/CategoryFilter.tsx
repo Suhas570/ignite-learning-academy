@@ -33,7 +33,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
     <div
       role="group"
       aria-label="Filter media by category"
-      className={`flex flex-wrap items-center justify-center gap-2 sm:gap-3 ${className}`}
+      className={`flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 ${className}`}
     >
       {categories.map((cat) => {
         const isActive = activeCategory === cat.value;
@@ -43,7 +43,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
             onClick={() => onSelectCategory(cat.value)}
             id={`filter-${cat.value}`}
             aria-pressed={isActive}
-            className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5A1D16] cursor-pointer ${
+            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5A1D16] cursor-pointer ${
               isActive
                 ? "bg-[#5A1D16] text-white shadow-md scale-105"
                 : "bg-white text-[#3D221B] border border-[rgba(90,29,22,0.15)] hover:border-[#5A1D16] hover:bg-[#FFF8F5] text-[#6F6864]"

@@ -180,7 +180,7 @@ export const Header: React.FC = () => {
       <div className="bg-[#E9B13A] text-[#3D221B] text-xs font-semibold py-1.5 border-b border-[rgba(46,26,20,0.1)]">
         <Container className="flex items-center justify-between">
           <div className="flex items-center gap-3 sm:gap-6">
-            <span className="inline-flex items-center gap-1.5">
+            <span className="hidden sm:inline-flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5" />
               <span>Bangalore Campus</span>
             </span>
@@ -479,7 +479,7 @@ export const Header: React.FC = () => {
       {mobileMenuOpen && (
         <div
           id="mobileNavContainer"
-          className="md:hidden bg-white border-b border-[rgba(90,29,22,0.12)] shadow-xl animate-in slide-in-from-top duration-200 max-h-[85vh] overflow-y-auto"
+          className="md:hidden bg-white border-b border-[rgba(90,29,22,0.12)] shadow-xl animate-in slide-in-from-top duration-200 max-h-[85vh] overflow-y-auto overscroll-contain scroll-smooth"
         >
           <Container className="py-4 space-y-2">
             <Link
@@ -551,10 +551,10 @@ export const Header: React.FC = () => {
                             key={course.href}
                             href={course.href}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center justify-between py-2 px-2 rounded-md hover:bg-[#FFF8F5] text-xs font-semibold text-[#3D221B] hover:text-[#5A1D16]"
+                            className="flex items-center justify-between gap-2 py-2 px-2 rounded-md hover:bg-[#FFF8F5] text-xs font-semibold text-[#3D221B] hover:text-[#5A1D16]"
                           >
-                            <span>{course.name}</span>
-                            <span className="text-[10px] text-[#6F6864] bg-[#FFF8F5] px-1.5 py-0.5 rounded">
+                            <span className="break-words">{course.name}</span>
+                            <span className="text-[10px] text-[#6F6864] bg-[#FFF8F5] px-1.5 py-0.5 rounded shrink-0">
                               {course.tag}
                             </span>
                           </Link>
@@ -595,13 +595,13 @@ export const Header: React.FC = () => {
                             onClick={() => setMobileMenuOpen(false)}
                             className="flex flex-col py-2 px-2 rounded-md hover:bg-[#FFF8F5] text-xs font-semibold text-[#3D221B] hover:text-[#5A1D16]"
                           >
-                            <div className="flex items-center justify-between">
-                              <span>{course.name}</span>
-                              <span className="text-[10px] text-[#5A1D16] bg-[#5A1D16]/10 px-1.5 py-0.5 rounded">
+                            <div className="flex items-center justify-between gap-2">
+                              <span className="break-words">{course.name}</span>
+                              <span className="text-[10px] text-[#5A1D16] bg-[#5A1D16]/10 px-1.5 py-0.5 rounded shrink-0">
                                 {course.tag}
                               </span>
                             </div>
-                            <span className="text-[10px] text-[#6F6864] font-normal mt-0.5">
+                            <span className="text-[10px] text-[#6F6864] font-normal mt-0.5 line-clamp-1 break-words">
                               {course.desc}
                             </span>
                           </Link>

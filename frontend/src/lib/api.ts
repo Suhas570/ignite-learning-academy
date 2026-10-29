@@ -146,7 +146,16 @@ export async function getPublishedPhotos(): Promise<MediaItem[]> {
 
     const data: PaginatedMedia = await res.json();
     return (data.docs || []).filter(
-      (item) => item.mediaType?.toLowerCase() === "image" && !item.videoUrl && !item.filename?.endsWith(".mp4")
+      (item) =>
+        item.mediaType?.toLowerCase() === "image" &&
+        !item.videoUrl &&
+        !item.filename?.endsWith(".mp4") &&
+        Boolean(
+          item.url &&
+            (item.url.startsWith("http://") ||
+              item.url.startsWith("https://") ||
+              item.url.startsWith("/gallery/"))
+        )
     );
   } catch (error) {
     console.error("[API] Error fetching published photos:", error);

@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "img.youtube.com",
         pathname: "/**",
       },
@@ -22,7 +27,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
+        hostname: "ignite-learning-academy-backend.onrender.com",
         pathname: "/**",
       },
       {
@@ -65,14 +70,14 @@ const nextConfig: NextConfig = {
       "default-src 'self'",
       `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      `img-src 'self' data: blob: https://res.cloudinary.com https://images.unsplash.com https://img.youtube.com https://i.ytimg.com https://*.onrender.com http://localhost:3000 http://127.0.0.1:3000${apiUrl ? ` ${apiUrl}` : ""}`,
+      `img-src 'self' data: blob: https://res.cloudinary.com https://images.unsplash.com https://img.youtube.com https://i.ytimg.com https://ignite-learning-academy-backend.onrender.com https://*.onrender.com http://localhost:3000 http://127.0.0.1:3000${apiUrl ? ` ${apiUrl}` : ""}`,
       "font-src 'self' https://fonts.gstatic.com data:",
-      `connect-src 'self' https://*.onrender.com http://localhost:3000 http://127.0.0.1:3000 https://ignite-learning-academy.netlify.app${apiUrl ? ` ${apiUrl}` : ""}`,
-      "media-src 'self' https://res.cloudinary.com blob:",
-      "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
+      `connect-src 'self' https://ignite-learning-academy-backend.onrender.com https://*.onrender.com https://res.cloudinary.com http://localhost:3000 http://127.0.0.1:3000 https://ignite-learning-academy.netlify.app${apiUrl ? ` ${apiUrl}` : ""}`,
+      "media-src 'self' blob: https://res.cloudinary.com https://ignite-learning-academy-backend.onrender.com https://*.onrender.com http://localhost:3000 http://127.0.0.1:3000",
+      "frame-src 'self' https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://www.instagram.com https://instagram.com",
       "object-src 'none'",
       "base-uri 'self'",
-      `form-action 'self' https://*.onrender.com http://localhost:3000 http://127.0.0.1:3000${apiUrl ? ` ${apiUrl}` : ""}`,
+      `form-action 'self' https://ignite-learning-academy-backend.onrender.com https://*.onrender.com http://localhost:3000 http://127.0.0.1:3000${apiUrl ? ` ${apiUrl}` : ""}`,
       "frame-ancestors 'self'",
     ].join("; ");
 

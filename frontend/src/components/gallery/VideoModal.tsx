@@ -65,7 +65,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ item, onClose }) => {
         <div className="relative w-full aspect-video min-h-[420px] bg-black flex items-center justify-center">
           {ytId ? (
             <iframe
-              src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0`}
+              src={`https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`}
               title={item.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen

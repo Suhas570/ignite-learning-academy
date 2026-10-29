@@ -53,13 +53,13 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/privacy",
-        destination: "/#",
-        permanent: false,
+        destination: "/privacy-policy",
+        permanent: true,
       },
       {
         source: "/terms",
-        destination: "/#",
-        permanent: false,
+        destination: "/terms-and-conditions",
+        permanent: true,
       },
     ];
   },

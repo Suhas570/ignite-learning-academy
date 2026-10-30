@@ -213,7 +213,31 @@ export default function PrivacyPolicyPage() {
               </ul>
             </div>
 
-            {/* Section 6: Contact Information */}
+            {/* Section 6: Compliance with DPDP Act 2023 (India) */}
+            <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#3D221B] flex items-center gap-2.5 pb-2 border-b border-[rgba(90,29,22,0.1)]">
+                <span className="w-7 h-7 rounded-lg bg-[#5A1D16] text-[#E9B13A] text-xs font-black flex items-center justify-center shrink-0">
+                  6
+                </span>
+                Compliance with DPDP Act 2023 (India)
+              </h2>
+              <p>
+                Ignite Learning Academy adheres to the <strong>Digital Personal Data Protection Act 2023 (DPDP Act 2023)</strong> of India. Personal data provided through our admissions enquiry forms, campus registrations, and contact channels is collected exclusively with explicit, affirmative consent.
+              </p>
+              <p>
+                All personal data is processed solely for academic admissions counseling, course syllabus delivery, student enrollment, and essential administrative updates. Users have the right to withdraw their consent or request complete erasure of their personal information at any time by contacting our administration at{" "}
+                <a href="mailto:ignitelearningacademy8@gmail.com" className="font-semibold underline text-[#5A1D16] hover:text-[#6B241A]">
+                  ignitelearningacademy8@gmail.com
+                </a>.
+              </p>
+              <div className="p-4 rounded-xl border border-amber-200 bg-amber-50/70 text-xs sm:text-sm text-[#3D221B]">
+                <p>
+                  <strong>Note Regarding Minors:</strong> For students under 18, consent must be provided by a parent or legal guardian.
+                </p>
+              </div>
+            </div>
+
+            {/* Section 7: Contact Information */}
             <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[rgba(90,29,22,0.15)] shadow-sm space-y-4">
               <h2 className="text-lg sm:text-xl font-bold text-[#3D221B]">
                 Questions or Privacy Inquiries?

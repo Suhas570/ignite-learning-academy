@@ -26,7 +26,7 @@ export const Enquiries: CollectionConfig = {
   slug: 'enquiries',
   admin: {
     useAsTitle: 'subject',
-    defaultColumns: ['name', 'email', 'subject', 'status', 'createdAt'],
+    defaultColumns: ['name', 'email', 'subject', 'status', 'consentGiven', 'createdAt'],
   },
   access: {
     // Only authenticated admins can read/update/delete. The public can only create enquiries.
@@ -38,7 +38,13 @@ export const Enquiries: CollectionConfig = {
   hooks: {
     beforeValidate: [
       async ({ data, req, operation }) => {
+        if (data) {
+          data.consentGiven = Boolean(data.consentGiven)
+        }
         if (operation === 'create' && data) {
+          if (!data.consentGiven) {
+            throw new Error('Consent under DPDP Act 2023 is required to submit an enquiry.')
+          }
           // Spam protection: check rate limit by client IP or email
           let clientIp = 'default-client'
           try {
@@ -238,6 +244,16 @@ export const Enquiries: CollectionConfig = {
         { label: 'Archived', value: 'archived' },
       ],
       label: 'Status',
+    },
+    {
+      name: 'consentGiven',
+      type: 'checkbox',
+      required: true,
+      defaultValue: false,
+      label: 'DPDP Consent Given',
+      admin: {
+        description: 'User provided explicit consent under Digital Personal Data Protection Act 2023.',
+      },
     },
   ],
   timestamps: true,

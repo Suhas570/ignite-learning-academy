@@ -17,6 +17,7 @@ interface FormState {
   phone: string;
   course: string;
   message: string;
+  consentGiven: boolean;
 }
 
 interface FormErrors {
@@ -25,6 +26,7 @@ interface FormErrors {
   phone?: string;
   course?: string;
   message?: string;
+  consentGiven?: string;
 }
 
 export const EnquiryForm: React.FC<EnquiryFormProps> = ({
@@ -42,6 +44,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
     phone: "",
     course: initialCourse,
     message: "",
+    consentGiven: false,
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -81,6 +84,10 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
       newErrors.message = "Message must be at least 10 characters.";
     }
 
+    if (!formData.consentGiven) {
+      newErrors.consentGiven = "You must consent to data processing to submit an enquiry.";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -88,7 +95,11 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
+    const { name } = e.target;
+    const value =
+      e.target.type === "checkbox"
+        ? (e.target as HTMLInputElement).checked
+        : e.target.value;
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
@@ -120,6 +131,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
           subject: formData.course || "General Course Enquiry",
           message: formData.message.trim(),
           source: "website",
+          consentGiven: formData.consentGiven,
         }),
       });
 
@@ -154,6 +166,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
       phone: "",
       course: initialCourse,
       message: "",
+      consentGiven: false,
     });
     setErrors({});
     setIsSubmitted(false);
@@ -328,6 +341,38 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
           {errors.message && (
             <p id="enquiry-message-error" className="mt-1 text-xs text-red-600 font-medium">
               {errors.message}
+            </p>
+          )}
+        </div>
+
+        {/* DPDP Act 2023 Consent Checkbox */}
+        <div className="pt-1">
+          <label className="flex items-start gap-2.5 cursor-pointer text-xs sm:text-sm text-[#3D221B] leading-relaxed">
+            <input
+              type="checkbox"
+              name="consentGiven"
+              checked={formData.consentGiven}
+              onChange={handleChange}
+              className="mt-0.5 h-4 w-4 rounded border-[rgba(90,29,22,0.3)] text-[#5A1D16] focus:ring-[#5A1D16] cursor-pointer"
+              aria-invalid={errors.consentGiven ? "true" : "false"}
+              aria-describedby={errors.consentGiven ? "enquiry-consent-error" : undefined}
+            />
+            <span>
+              I consent to Ignite Learning Academy collecting and processing my data as described in the{" "}
+              <a
+                href="/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#5A1D16] underline font-semibold hover:text-[#6B241A]"
+              >
+                Privacy Policy
+              </a>
+              . <span className="text-red-500">*</span>
+            </span>
+          </label>
+          {errors.consentGiven && (
+            <p id="enquiry-consent-error" className="mt-1 text-xs text-red-600 font-medium pl-6.5">
+              {errors.consentGiven}
             </p>
           )}
         </div>

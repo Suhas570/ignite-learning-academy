@@ -252,6 +252,14 @@ export const cloudinaryAdapter: Adapter = ({ prefix = 'ignite-academy' }) => {
         }
       }
 
+      // Cloudinary CDN fallback for Montessori Early Reading Practicum
+      if (filename === 'montessori_early_reading_practicum.mp4') {
+        return Response.redirect('https://res.cloudinary.com/cbbjut8p/video/upload/v1793009654/ignite-academy/montessori_early_reading_practicum.mp4', 302)
+      }
+      if (filename === 'montessori_early_reading_practicum.mp4.jpg' || filename === 'montessori_early_reading_practicum.jpg') {
+        return Response.redirect('https://res.cloudinary.com/cbbjut8p/video/upload/v1793009654/ignite-academy/montessori_early_reading_practicum.jpg', 302)
+      }
+
       return new Response('File not found', { status: 404 })
     },
   }

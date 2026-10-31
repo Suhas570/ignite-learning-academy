@@ -91,6 +91,14 @@ export function extractInstagramShortcode(url?: string): { shortcode: string; ty
  * - Otherwise: Returns resolved Cloudinary or direct image URL.
  */
 export function getVideoThumbnail(item: MediaItem): string {
+  // Direct Cloudinary thumbnail for Montessori Early Reading Practicum
+  if (
+    item.filename === "montessori_early_reading_practicum.mp4" ||
+    item.title === "Montessori Early Reading Practicum"
+  ) {
+    return "https://res.cloudinary.com/cbbjut8p/video/upload/v1793009654/ignite-academy/montessori_early_reading_practicum.jpg";
+  }
+
   // 1. If explicit thumbnailURL is provided by backend
   if (item.thumbnailURL) {
     const rawThumb = item.thumbnailURL;
@@ -188,12 +196,26 @@ export async function getPublishedVideos(): Promise<MediaItem[]> {
     }
 
     const data: PaginatedMedia = await res.json();
-    return (data.docs || []).filter(
-      (item) =>
-        item.mediaType?.toLowerCase() === "video" ||
-        Boolean(item.videoUrl) ||
-        Boolean(item.filename && item.filename.endsWith(".mp4"))
-    );
+    return (data.docs || [])
+      .filter(
+        (item) =>
+          item.mediaType?.toLowerCase() === "video" ||
+          Boolean(item.videoUrl) ||
+          Boolean(item.filename && item.filename.endsWith(".mp4"))
+      )
+      .map((item) => {
+        if (
+          item.filename === "montessori_early_reading_practicum.mp4" ||
+          item.title === "Montessori Early Reading Practicum"
+        ) {
+          return {
+            ...item,
+            url: "https://res.cloudinary.com/cbbjut8p/video/upload/v1793009654/ignite-academy/montessori_early_reading_practicum.mp4",
+            thumbnailURL: "https://res.cloudinary.com/cbbjut8p/video/upload/v1793009654/ignite-academy/montessori_early_reading_practicum.jpg",
+          };
+        }
+        return item;
+      });
   } catch (error) {
     console.error("[API] Error fetching published videos:", error);
     return [];

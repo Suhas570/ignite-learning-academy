@@ -32,8 +32,15 @@ export const VideoModal: React.FC<VideoModalProps> = ({ item, onClose }) => {
 
   const ytId = extractYouTubeId(item.videoUrl);
   const igData = extractInstagramShortcode(item.videoUrl);
-  const isVideoFile = item.url && (item.url.endsWith(".mp4") || item.mimeType?.startsWith("video/") || item.url.includes("/video/upload/"));
-  const directVideoUrl = isVideoFile ? resolveMediaUrl(item.url) : null;
+  const isMontessoriReading =
+    item.filename === "montessori_early_reading_practicum.mp4" ||
+    item.title === "Montessori Early Reading Practicum";
+  const isVideoFile = isMontessoriReading || Boolean(item.url && (item.url.endsWith(".mp4") || item.mimeType?.startsWith("video/") || item.url.includes("/video/upload/")));
+  const directVideoUrl = isMontessoriReading
+    ? "https://res.cloudinary.com/cbbjut8p/video/upload/v1793009654/ignite-academy/montessori_early_reading_practicum.mp4"
+    : isVideoFile
+    ? resolveMediaUrl(item.url)
+    : null;
 
   return (
     <div

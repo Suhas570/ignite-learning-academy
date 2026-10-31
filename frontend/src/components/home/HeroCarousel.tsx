@@ -104,7 +104,7 @@ export const HeroCarousel: React.FC = () => {
           {SLIDES.map((slide, index) => (
             <div
               key={slide.id}
-              className="relative min-w-full min-h-[580px] sm:min-h-[660px] lg:h-[740px] flex items-center justify-start shrink-0"
+              className="relative min-w-full min-h-[600px] sm:min-h-[660px] lg:h-[740px] h-auto flex items-center justify-start shrink-0"
               role="group"
               aria-roledescription="slide"
               aria-label={`Slide ${index + 1} of ${SLIDES.length}`}
@@ -119,14 +119,14 @@ export const HeroCarousel: React.FC = () => {
                 sizes="100vw"
               />
 
-              {/* Dark Overlay (bg-black/50) for crisp typography contrast */}
-              <div className="absolute inset-0 bg-black/50 backdrop-brightness-95" />
+              {/* Dark Overlay - Strengthened on mobile (< 640px/768px) for crisp typography contrast */}
+              <div className="absolute inset-0 bg-black/65 sm:bg-black/50 backdrop-brightness-90 sm:backdrop-brightness-95" />
 
-              {/* Subtle Bottom Vignette Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+              {/* Subtle Vignette Gradient for Depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 sm:via-transparent to-black/50 sm:to-black/30" />
 
               {/* Slide Content Overlay - Left-Middle Aligned */}
-              <Container className="relative z-10 text-white text-left pl-4 pr-4 sm:pl-14 lg:pl-20 py-10 sm:py-14">
+              <Container className="relative z-10 text-white text-left px-5 sm:pl-14 sm:pr-8 lg:pl-20 py-12 sm:py-16">
                 <div className="max-w-3xl space-y-4 sm:space-y-6">
                   {/* Badge */}
                   <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#E9B13A] text-[#3D221B] text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg">
@@ -134,8 +134,8 @@ export const HeroCarousel: React.FC = () => {
                     <span>{slide.badge}</span>
                   </div>
 
-                  {/* Headline: Ignite Learning Academy — Empowering Teachers. Inspiring Students. Shaping the Future. */}
-                  <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.2] drop-shadow-md">
+                  {/* Headline: Responsive typography, no overlap or cutoff */}
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.2] sm:leading-[1.18] drop-shadow-md">
                     <span className="text-[#E9B13A]">Ignite Learning Academy</span> —{" "}
                     Empowering Teachers. Inspiring Students.{" "}
                     <span className="text-[#E9B13A] block sm:inline">
@@ -149,12 +149,12 @@ export const HeroCarousel: React.FC = () => {
                   </p>
 
                   {/* Dual CTA Buttons - Full-width stacked on mobile */}
-                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2 sm:pt-4 w-full sm:w-auto">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 pt-3 sm:pt-4 w-full sm:w-auto">
                     <Button
                       href="#enquire"
                       variant="primary"
                       id="btnHeroConsultation"
-                      className="w-full sm:w-auto justify-center text-center px-6 py-3 sm:px-8 sm:py-3.5 shadow-md text-sm sm:text-base"
+                      className="w-full sm:w-auto justify-center text-center px-6 py-3.5 sm:px-8 sm:py-3.5 shadow-md text-sm sm:text-base font-bold"
                     >
                       <span>Book Free Consultation</span>
                       <ArrowRight className="w-4 h-4" />
@@ -164,7 +164,7 @@ export const HeroCarousel: React.FC = () => {
                       href="/courses"
                       variant="secondary"
                       id="btnHeroExploreCourses"
-                      className="w-full sm:w-auto justify-center text-center px-6 py-3 sm:px-8 sm:py-3.5 shadow-md text-sm sm:text-base"
+                      className="w-full sm:w-auto justify-center text-center px-6 py-3.5 sm:px-8 sm:py-3.5 shadow-md text-sm sm:text-base font-bold"
                     >
                       <span>Explore Courses</span>
                     </Button>
@@ -176,12 +176,12 @@ export const HeroCarousel: React.FC = () => {
         </div>
       </div>
 
-      {/* Navigation Arrows - Hidden on mobile, native swipe supported */}
+      {/* Navigation Arrows - Strictly hidden on mobile (< 768px), swipe supported */}
       <button
         type="button"
         onClick={scrollPrev}
         aria-label="Previous slide"
-        className="hidden sm:flex absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/40 hover:bg-black/75 text-white items-center justify-center backdrop-blur-xs border border-white/20 transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#E9B13A]"
+        className="hidden md:flex absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/40 hover:bg-black/75 text-white items-center justify-center backdrop-blur-xs border border-white/20 transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#E9B13A]"
       >
         <ChevronLeft className="w-6 h-6 text-white" />
       </button>
@@ -190,7 +190,7 @@ export const HeroCarousel: React.FC = () => {
         type="button"
         onClick={scrollNext}
         aria-label="Next slide"
-        className="hidden sm:flex absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/40 hover:bg-black/75 text-white items-center justify-center backdrop-blur-xs border border-white/20 transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#E9B13A]"
+        className="hidden md:flex absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/40 hover:bg-black/75 text-white items-center justify-center backdrop-blur-xs border border-white/20 transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#E9B13A]"
       >
         <ChevronRight className="w-6 h-6 text-white" />
       </button>

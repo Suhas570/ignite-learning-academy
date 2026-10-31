@@ -18,6 +18,8 @@ const dirname = path.dirname(filename)
 
 const allowedOrigins = [
   'https://ignite-learning-academy.netlify.app',
+  'https://ignitelearningacademy.in',
+  'https://www.ignitelearningacademy.in',
   ...(process.env.NODE_ENV !== 'production' ? ['http://localhost:3001', 'http://127.0.0.1:3001'] : []),
   ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
 ]

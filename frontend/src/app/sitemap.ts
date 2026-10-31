@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllCourseSlugs } from "@/data/courses";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ignitelearningacademy.com";
+  const baseUrl = "https://ignitelearningacademy.in";
 
   // Production release / content audit baseline date (avoids misleading current-time stamps)
   const lastModDate = new Date("2026-10-27T00:00:00.000Z");
@@ -39,6 +39,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: lastModDate,
       changeFrequency: "weekly",
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: lastModDate,
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/terms-and-conditions`,
+      lastModified: lastModDate,
+      changeFrequency: "monthly",
+      priority: 0.5,
     },
   ];
 

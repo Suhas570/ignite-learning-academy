@@ -14,9 +14,22 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ignitelearningacademy.in"),
   title: "Ignite Learning Academy | Premier Teacher Training Institute",
   description:
     "Government-certified Nursery Teacher Training (NTT) Diploma, Montessori workshops, and child psychology training in Bangalore.",
+  alternates: {
+    canonical: "https://ignitelearningacademy.in",
+  },
+  openGraph: {
+    title: "Ignite Learning Academy | Premier Teacher Training Institute",
+    description:
+      "Government-certified Nursery Teacher Training (NTT) Diploma, Montessori workshops, and child psychology training in Bangalore.",
+    url: "https://ignitelearningacademy.in",
+    siteName: "Ignite Learning Academy",
+    locale: "en_IN",
+    type: "website",
+  },
 };
 
 export default async function RootLayout({

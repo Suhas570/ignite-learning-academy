@@ -11,20 +11,13 @@ interface CourseCardProps {
 }
 
 const DEFAULT_COURSE_IMAGES: Record<string, string> = {
-  "nursery-teachers-training":
-    "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800&auto=format&fit=crop",
-  "public-speaking-for-juniors":
-    "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop",
-  "public-speaking-for-seniors":
-    "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop",
-  "life-skills-for-juniors":
-    "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
-  "life-skills-for-seniors":
-    "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
-  "communication-for-impact":
-    "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800&auto=format&fit=crop",
-  "teachers-training-certificate-program":
-    "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800&auto=format&fit=crop",
+  "nursery-teachers-training": "/courses/nursery-teachers-training.jpg",
+  "public-speaking-for-juniors": "/courses/public-speaking-for-juniors.jpg",
+  "life-skills-for-juniors": "/courses/life-skills-for-juniors.jpg",
+  "teachers-training-certificate-program": "/hero/teacher-training-seminar.jpg",
+  "communication-for-impact": "/hero/early-childhood-storytelling.jpg",
+  "public-speaking-for-seniors": "/hero/student-public-speaking.jpg",
+  "life-skills-for-seniors": "/gallery/student-origami-collage.jpg",
 };
 
 export const CourseCard: React.FC<CourseCardProps> = ({
@@ -35,7 +28,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({
   const imageSrc =
     imageUrl ||
     DEFAULT_COURSE_IMAGES[course.slug] ||
-    "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop";
+    "/courses/nursery-teachers-training.jpg";
 
   const categoryLabel =
     course.category === "teachers" ? "Teacher Training" : "Student Training";

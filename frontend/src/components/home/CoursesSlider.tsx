@@ -10,12 +10,6 @@ interface CoursesSliderProps {
   courses: Course[];
 }
 
-const SLIDER_IMAGES = [
-  "https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
-];
-
 export const CoursesSlider: React.FC<CoursesSliderProps> = ({ courses }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
@@ -77,7 +71,6 @@ export const CoursesSlider: React.FC<CoursesSliderProps> = ({ courses }) => {
             >
               <CourseCard
                 course={course}
-                imageUrl={SLIDER_IMAGES[idx % SLIDER_IMAGES.length]}
                 className="h-[520px]"
               />
             </div>

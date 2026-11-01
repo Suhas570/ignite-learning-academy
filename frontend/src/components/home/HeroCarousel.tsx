@@ -56,6 +56,7 @@ export const HeroCarousel: React.FC = () => {
     {
       loop: true,
       duration: 30,
+      align: "start",
     },
     [Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })]
   );
@@ -99,12 +100,12 @@ export const HeroCarousel: React.FC = () => {
       aria-label="Ignite Academy Featured Highlights Carousel"
     >
       {/* Embla Viewport */}
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
+      <div className="overflow-hidden w-full" ref={emblaRef}>
+        <div className="flex touch-pan-y w-full">
           {SLIDES.map((slide, index) => (
             <div
               key={slide.id}
-              className="relative min-w-full min-h-[600px] sm:min-h-[660px] lg:h-[740px] h-auto flex items-center justify-start shrink-0"
+              className="relative flex-[0_0_100%] min-w-0 w-full max-w-full min-h-[580px] sm:min-h-[660px] lg:h-[740px] h-auto flex items-center justify-start overflow-hidden shrink-0"
               role="group"
               aria-roledescription="slide"
               aria-label={`Slide ${index + 1} of ${SLIDES.length}`}
@@ -126,35 +127,35 @@ export const HeroCarousel: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 sm:via-transparent to-black/50 sm:to-black/30" />
 
               {/* Slide Content Overlay - Left-Middle Aligned */}
-              <Container className="relative z-10 text-white text-left px-5 sm:pl-14 sm:pr-8 lg:pl-20 py-12 sm:py-16">
-                <div className="max-w-3xl space-y-4 sm:space-y-6">
+              <Container className="relative z-10 text-white text-left px-4 sm:pl-14 sm:pr-8 lg:pl-20 py-10 sm:py-16 w-full max-w-full min-w-0">
+                <div className="w-full max-w-3xl space-y-3.5 sm:space-y-6 min-w-0">
                   {/* Badge */}
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#E9B13A] text-[#3D221B] text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg">
-                    <Sparkles className="w-4 h-4 text-[#5A1D16]" />
-                    <span>{slide.badge}</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#E9B13A] text-[#3D221B] text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg max-w-full">
+                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#5A1D16] shrink-0" />
+                    <span className="truncate">{slide.badge}</span>
                   </div>
 
                   {/* Headline: Responsive typography, no overlap or cutoff */}
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.2] sm:leading-[1.18] drop-shadow-md">
+                  <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-snug sm:leading-[1.18] drop-shadow-md break-words">
                     <span className="text-[#E9B13A]">Ignite Learning Academy</span> —{" "}
-                    Empowering Teachers. Inspiring Students.{" "}
+                    {slide.headline || "Empowering Teachers. Inspiring Students."}{" "}
                     <span className="text-[#E9B13A] block sm:inline">
-                      Shaping the Future.
+                      {slide.highlight || "Shaping the Future."}
                     </span>
                   </h1>
 
                   {/* Subtext */}
-                  <p className="text-sm sm:text-lg text-white/90 leading-relaxed max-w-2xl font-medium drop-shadow-sm">
+                  <p className="text-xs sm:text-base lg:text-lg text-white/90 leading-relaxed max-w-2xl font-medium drop-shadow-sm break-words">
                     {slide.description}
                   </p>
 
                   {/* Dual CTA Buttons - Full-width stacked on mobile */}
-                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 pt-3 sm:pt-4 w-full sm:w-auto">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2 sm:pt-4 w-full sm:w-auto">
                     <Button
                       href="#enquire"
                       variant="primary"
                       id="btnHeroConsultation"
-                      className="w-full sm:w-auto justify-center text-center px-6 py-3.5 sm:px-8 sm:py-3.5 shadow-md text-sm sm:text-base font-bold"
+                      className="w-full sm:w-auto justify-center text-center px-5 py-3 sm:px-8 sm:py-3.5 shadow-md text-sm sm:text-base font-bold"
                     >
                       <span>Book Free Consultation</span>
                       <ArrowRight className="w-4 h-4" />
@@ -164,7 +165,7 @@ export const HeroCarousel: React.FC = () => {
                       href="/courses"
                       variant="secondary"
                       id="btnHeroExploreCourses"
-                      className="w-full sm:w-auto justify-center text-center px-6 py-3.5 sm:px-8 sm:py-3.5 shadow-md text-sm sm:text-base font-bold"
+                      className="w-full sm:w-auto justify-center text-center px-5 py-3 sm:px-8 sm:py-3.5 shadow-md text-sm sm:text-base font-bold"
                     >
                       <span>Explore Courses</span>
                     </Button>
@@ -196,7 +197,7 @@ export const HeroCarousel: React.FC = () => {
       </button>
 
       {/* Carousel Dots */}
-      <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center items-center gap-2.5">
+      <div className="absolute bottom-4 sm:bottom-6 left-0 right-0 z-20 flex justify-center items-center gap-2 sm:gap-2.5">
         {scrollSnaps.map((_, idx) => (
           <button
             key={idx}
@@ -205,8 +206,8 @@ export const HeroCarousel: React.FC = () => {
             aria-label={`Go to slide ${idx + 1}`}
             className={`transition-all duration-300 rounded-full ${
               idx === selectedIndex
-                ? "w-8 h-2.5 bg-[#E9B13A] shadow-md"
-                : "w-2.5 h-2.5 bg-white/50 hover:bg-white/80"
+                ? "w-7 sm:w-8 h-2 sm:h-2.5 bg-[#E9B13A] shadow-md"
+                : "w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white/50 hover:bg-white/80"
             }`}
           />
         ))}

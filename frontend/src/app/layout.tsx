@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   title: "Ignite Learning Academy | Premier Teacher Training Institute",
   description:
     "Government-certified Nursery Teacher Training (NTT) Diploma, Montessori workshops, and child psychology training in Bangalore.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   alternates: {
     canonical: "https://ignitelearningacademy.in",
   },

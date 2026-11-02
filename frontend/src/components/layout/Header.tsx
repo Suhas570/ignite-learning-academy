@@ -209,9 +209,9 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Main Navbar - Solid White Background */}
-      <nav className="border-b border-[rgba(90,29,22,0.08)] bg-white py-3">
+      <nav className="border-b border-[rgba(90,29,22,0.08)] bg-white py-2 md:py-2.5">
         <Container className="flex items-center justify-between">
-          {/* Brand Logo - Rectangular, h-12 md:h-16 w-auto object-contain */}
+          {/* Brand Logo - Enlarged 1:1 square ratio with responsive scaling */}
           <Link
             href="/"
             className="flex items-center group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5A1D16] rounded-lg"
@@ -220,10 +220,10 @@ export const Header: React.FC = () => {
             <Image
               src="/ilogo.png"
               alt="Ignite Learning Academy"
-              width={220}
-              height={64}
+              width={96}
+              height={96}
               priority
-              className="h-12 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
             />
           </Link>
 

@@ -54,7 +54,7 @@ const TEACHER_COURSES: CourseLink[] = [
   {
     name: "NTT Nursery Teachers Training",
     href: "/courses/nursery-teachers-training",
-    tag: "1 Year",
+    tag: "6 Months / 1 Year",
     desc: "Accredited early childhood diploma & practicum",
   },
   {
@@ -196,7 +196,7 @@ export const Header: React.FC = () => {
 
           <div className="flex items-center gap-2">
             <span className="hidden md:inline-flex items-center gap-1 bg-[#3D221B]/10 px-2.5 py-0.5 rounded-full text-[11px] tracking-wide uppercase font-bold">
-              🎓 Admissions Open 2026
+              🎓 ADMISSION OPEN FOR JUNE EXAM
             </span>
             <Link
               href="/contact"
@@ -211,7 +211,7 @@ export const Header: React.FC = () => {
       {/* Main Navbar - Solid White Background */}
       <nav className="border-b border-[rgba(90,29,22,0.08)] bg-white py-2 md:py-2.5">
         <Container className="flex items-center justify-between">
-          {/* Brand Logo - Enlarged 1:1 square ratio with responsive scaling */}
+          {/* Brand Logo - Clean borderless container with mix-blend-multiply */}
           <Link
             href="/"
             className="flex items-center group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5A1D16] rounded-lg"
@@ -223,7 +223,7 @@ export const Header: React.FC = () => {
               width={96}
               height={96}
               priority
-              className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              className="h-14 w-auto md:h-20 object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
             />
           </Link>
 

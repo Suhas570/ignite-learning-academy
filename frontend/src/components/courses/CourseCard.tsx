@@ -12,12 +12,18 @@ interface CourseCardProps {
 
 const DEFAULT_COURSE_IMAGES: Record<string, string> = {
   "nursery-teachers-training": "/courses/nursery-teachers-training.jpg",
-  "public-speaking-for-juniors": "/courses/public-speaking-for-juniors.jpg",
-  "life-skills-for-juniors": "/courses/life-skills-for-juniors.jpg",
+  "public-speaking-for-juniors":
+    "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=800&auto=format&fit=crop",
+  "life-skills-for-juniors":
+    "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=800&auto=format&fit=crop",
+  "public-speaking-for-seniors":
+    "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=800&auto=format&fit=crop",
+  "life-skills-for-seniors":
+    "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
   "teachers-training-certificate-program": "/hero/teacher-training-seminar.jpg",
   "communication-for-impact": "/hero/early-childhood-storytelling.jpg",
-  "public-speaking-for-seniors": "/hero/student-public-speaking.jpg",
-  "life-skills-for-seniors": "/gallery/student-origami-collage.jpg",
+  "play-based-learning-for-teachers": "/courses/nursery-teachers-training.jpg",
+  "communication-skills-for-educators": "/hero/early-childhood-storytelling.jpg",
 };
 
 export const CourseCard: React.FC<CourseCardProps> = ({
@@ -27,6 +33,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({
 }) => {
   const imageSrc =
     imageUrl ||
+    course.image ||
     DEFAULT_COURSE_IMAGES[course.slug] ||
     "/courses/nursery-teachers-training.jpg";
 

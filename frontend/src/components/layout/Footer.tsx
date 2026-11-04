@@ -11,13 +11,18 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           {/* Column 1: Brand & About */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block p-1.5 bg-white rounded-xl shadow-sm hover:opacity-95 transition-opacity">
+            {/* Brand Logo - Clean borderless container without harsh white box or drop-shadows */}
+            <Link
+              href="/"
+              className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E9B13A] rounded-lg transition-opacity hover:opacity-95"
+              aria-label="Ignite Learning Academy Home"
+            >
               <Image
                 src="/ilogo.png"
                 alt="Ignite Learning Academy"
-                width={220}
-                height={64}
-                className="h-12 md:h-16 w-auto object-contain"
+                width={96}
+                height={96}
+                className="h-14 w-auto md:h-20 object-contain mix-blend-multiply"
               />
             </Link>
             <p className="text-sm font-semibold text-[#E9B13A]">

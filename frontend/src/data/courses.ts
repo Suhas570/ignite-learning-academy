@@ -13,6 +13,7 @@ export interface Course {
   badge?: string;
   featured?: boolean;
   category?: "students" | "teachers";
+  image?: string;
 }
 
 export const COURSES: Course[] = [
@@ -26,6 +27,8 @@ export const COURSES: Course[] = [
     badge: "Students (Ages 6–11)",
     featured: true,
     category: "students",
+    image:
+      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=800&auto=format&fit=crop",
     shortDescription:
       "Nurture natural stage confidence, clear articulation, expressive body language, and creative storytelling in a fun, supportive atmosphere.",
     description:
@@ -53,6 +56,8 @@ export const COURSES: Course[] = [
     badge: "Students (Ages 12–18)",
     featured: true,
     category: "students",
+    image:
+      "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=800&auto=format&fit=crop",
     shortDescription:
       "Master parliamentary debate, persuasive rhetoric, TED-style keynote delivery, and compelling on-stage argumentation for teens.",
     description:
@@ -80,6 +85,8 @@ export const COURSES: Course[] = [
     badge: "Students (Ages 6–11)",
     featured: true,
     category: "students",
+    image:
+      "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=800&auto=format&fit=crop",
     shortDescription:
       "Develop emotional intelligence, positive friendship habits, healthy self-regulation, empathy, and everyday creative problem-solving.",
     description:
@@ -87,11 +94,25 @@ export const COURSES: Course[] = [
     duration: "8 Weeks",
     eligibility: "Students in Grades 1 to 5 (Ages 6–11)",
     mode: "Activity-Based Workshop & Group Collaboration",
+    syllabus: [
+      "Self-Awareness & Personal Development",
+      "Interpersonal & Relationship Skills",
+      "Emotional Intelligence",
+      "Time Management & Organisation",
+      "Financial Literacy",
+      "Leadership & Team Building",
+      "Digital & Social Awareness",
+      "Values, Ethics & Social Responsibility",
+    ],
     modules: [
-      "Understanding Emotions & Self-Regulation Habits",
-      "Empathy, Kindness & Collaborative Friendship Skills",
-      "Creative Problem-Solving & Daily Decision Making",
-      "Everyday Independence, Personal Safety & Mindfulness",
+      "Self-Awareness & Personal Development",
+      "Interpersonal & Relationship Skills",
+      "Emotional Intelligence",
+      "Time Management & Organisation",
+      "Financial Literacy",
+      "Leadership & Team Building",
+      "Digital & Social Awareness",
+      "Values, Ethics & Social Responsibility",
     ],
     learningOutcomes: [
       "Identify and express emotional states constructively without emotional overwhelm.",
@@ -107,6 +128,8 @@ export const COURSES: Course[] = [
     badge: "Students (Ages 12–18)",
     featured: true,
     category: "students",
+    image:
+      "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
     shortDescription:
       "Crucial real-world preparedness: personal finance, time management, critical thinking, stress resilience, and self-leadership.",
     description:
@@ -114,11 +137,25 @@ export const COURSES: Course[] = [
     duration: "12 Weeks",
     eligibility: "Students in Grades 6 to 12 (Ages 12–18)",
     mode: "Scenario Labs, Financial Masterclasses & Leadership Mentorship",
+    syllabus: [
+      "Self-Awareness & Personal Development",
+      "Interpersonal & Relationship Skills",
+      "Emotional Intelligence",
+      "Time Management & Organisation",
+      "Financial Literacy",
+      "Leadership & Team Building",
+      "Digital & Social Awareness",
+      "Values, Ethics & Social Responsibility",
+    ],
     modules: [
-      "Personal Finance, Budgeting & Smart Money Habits",
-      "Time Architecture, Productivity & Goal Setting",
-      "Critical Thinking, Information Literacy & Ethics",
-      "Mental Wellness, Stress Navigation & Emotional Resilience",
+      "Self-Awareness & Personal Development",
+      "Interpersonal & Relationship Skills",
+      "Emotional Intelligence",
+      "Time Management & Organisation",
+      "Financial Literacy",
+      "Leadership & Team Building",
+      "Digital & Social Awareness",
+      "Values, Ethics & Social Responsibility",
     ],
     learningOutcomes: [
       "Construct and maintain a personal savings budget and understand core financial instruments.",
@@ -138,11 +175,12 @@ export const COURSES: Course[] = [
     badge: "Diploma & Certification",
     featured: true,
     category: "teachers",
+    image: "/courses/nursery-teachers-training.jpg",
     shortDescription:
       "Develop socially aware teachers who understand child psychology, are sensitive to individual needs, and can provide appropriate educational and personal support in early childhood settings.",
     description:
-      "The Nursery Teachers Training (NTT) program at Ignite Learning Academy is an intensive 1-Year diploma. Designed in alignment with National Education Policy (NEP 2020) foundational stage guidelines, this program empowers educators with deep developmental psychology insights, multi-sensory curriculum design, phonics, and hands-on classroom practicums.",
-    duration: "1 Year",
+      "The Nursery Teachers Training (NTT) program at Ignite Learning Academy is an intensive diploma. Designed in alignment with National Education Policy (NEP 2020) foundational stage guidelines, this program empowers educators with deep developmental psychology insights, multi-sensory curriculum design, phonics, and hands-on classroom practicums.",
+    duration: "6 Months / 1 Year",
     eligibility: "10+2 / Higher Secondary in any stream (Graduation preferred)",
     mode: "Hybrid (Online Theory + Weekend Practical Practicum in Bangalore)",
     syllabus: [

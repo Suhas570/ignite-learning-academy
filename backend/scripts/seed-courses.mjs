@@ -67,10 +67,14 @@ const COURSES_DATA = [
     eligibility: "Students in Grades 1 to 5 (Ages 6–11)",
     mode: "Activity-Based Workshop & Group Collaboration",
     syllabus: [
-      "Understanding Emotions & Self-Regulation Habits",
-      "Empathy, Kindness & Collaborative Friendship Skills",
-      "Creative Problem-Solving & Daily Decision Making",
-      "Everyday Independence, Personal Safety & Mindfulness",
+      "Self-Awareness & Personal Development",
+      "Interpersonal & Relationship Skills",
+      "Emotional Intelligence",
+      "Time Management & Organisation",
+      "Financial Literacy",
+      "Leadership & Team Building",
+      "Digital & Social Awareness",
+      "Values, Ethics & Social Responsibility",
     ],
     learningOutcomes: [
       "Identify and express emotional states constructively without emotional overwhelm.",
@@ -93,10 +97,14 @@ const COURSES_DATA = [
     eligibility: "Students in Grades 6 to 12 (Ages 12–18)",
     mode: "Scenario Labs, Financial Masterclasses & Leadership Mentorship",
     syllabus: [
-      "Personal Finance, Budgeting & Smart Money Habits",
-      "Time Architecture, Productivity & Goal Setting",
-      "Critical Thinking, Information Literacy & Ethics",
-      "Mental Wellness, Stress Navigation & Emotional Resilience",
+      "Self-Awareness & Personal Development",
+      "Interpersonal & Relationship Skills",
+      "Emotional Intelligence",
+      "Time Management & Organisation",
+      "Financial Literacy",
+      "Leadership & Team Building",
+      "Digital & Social Awareness",
+      "Values, Ethics & Social Responsibility",
     ],
     learningOutcomes: [
       "Construct and maintain a personal savings budget and understand core financial instruments.",
@@ -114,8 +122,8 @@ const COURSES_DATA = [
     shortDescription:
       "Develop socially aware teachers who understand child psychology, are sensitive to individual needs, and can provide appropriate educational and personal support in early childhood settings.",
     description:
-      "The Nursery Teachers Training (NTT) program at Ignite Learning Academy is an intensive 1-Year diploma. Designed in alignment with National Education Policy (NEP 2020) foundational stage guidelines, this program empowers educators with deep developmental psychology insights, multi-sensory curriculum design, phonics, and hands-on classroom practicums.",
-    duration: "1 Year",
+      "The Nursery Teachers Training (NTT) program at Ignite Learning Academy is an intensive diploma. Designed in alignment with National Education Policy (NEP 2020) foundational stage guidelines, this program empowers educators with deep developmental psychology insights, multi-sensory curriculum design, phonics, and hands-on classroom practicums.",
+    duration: "6 Months / 1 Year",
     eligibility: "10+2 / Higher Secondary in any stream (Graduation preferred)",
     mode: "Hybrid (Online Theory + Weekend Practical Practicum in Bangalore)",
     syllabus: [

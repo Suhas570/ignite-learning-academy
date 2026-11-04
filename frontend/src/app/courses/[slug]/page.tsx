@@ -88,7 +88,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 {course.badge}
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#E9B13A]/20 text-[#3D221B] border border-[#E9B13A]/40">
-                Admissions Open 2026
+                Admission Open for June Exam
               </span>
             </div>
 

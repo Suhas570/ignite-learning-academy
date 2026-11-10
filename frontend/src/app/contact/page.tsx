@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "Contact Us & Admissions Enquiry | Ignite Learning Academy Bangalore",
   description:
     "Get in touch with Ignite Learning Academy. Reach out for Nursery Teachers Training (NTT) diploma admissions, student speech and life skills programs, and campus visits.",
+  alternates: {
+    canonical: "https://ignitelearningacademy.in/contact",
+  },
 };
 
 const CONTACT_INFO = [

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Terms & Conditions | Ignite Learning Academy",
   description:
     "Review the terms of engagement, intellectual property policies, enrollment guidelines, and code of conduct for Ignite Learning Academy in Bangalore.",
+  alternates: {
+    canonical: "https://ignitelearningacademy.in/terms-and-conditions",
+  },
 };
 
 export default function TermsAndConditionsPage() {

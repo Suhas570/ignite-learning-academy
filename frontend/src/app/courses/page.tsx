@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: "Programmes & Certifications | Ignite Learning Academy",
   description:
     "Explore certified Nursery Teachers Training (NTT) diplomas, Play-Based Learning workshops, and Educator Communication certifications in Bangalore. Admissions open.",
+  alternates: {
+    canonical: "https://ignitelearningacademy.in/courses",
+  },
 };
 
 export default async function CoursesPage() {

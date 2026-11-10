@@ -23,9 +23,6 @@ export const metadata: Metadata = {
     shortcut: "/icon.png",
     apple: "/icon.png",
   },
-  alternates: {
-    canonical: "https://ignitelearningacademy.in",
-  },
   openGraph: {
     title: "Ignite Learning Academy | Premier Teacher Training Institute",
     description:

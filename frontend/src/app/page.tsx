@@ -11,6 +11,8 @@ import {
   Phone,
   Mail,
   Award,
+  Building2,
+  Users,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -27,6 +29,9 @@ export const metadata: Metadata = {
   title: "Ignite Learning Academy | Premier Early Childhood Teacher Training in Bangalore",
   description:
     "Transform into a certified early childhood educator with our recognized Nursery Teachers Training (NTT) Diploma, play-based pedagogy workshops, and 100% placement support in Bangalore.",
+  alternates: {
+    canonical: "https://ignitelearningacademy.in",
+  },
 };
 
 export const revalidate = 60;
@@ -110,6 +115,93 @@ export default async function HomePage() {
           </div>
         </Container>
       </div>
+
+      {/* Vision & Mission Section */}
+      <section className="py-16 sm:py-20 bg-[#FAF6F3]/50 border-b border-[rgba(90,29,22,0.06)]">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Card 1: Our Vision */}
+            <div className="bg-white border border-[rgba(90,29,22,0.08)] rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9B13A]/15 text-[#5A1D16] text-xs font-bold uppercase tracking-wider mb-4">
+                Our Vision
+              </div>
+              <h3 className="text-2xl font-bold text-[#3D221B] mb-3">Our Vision</h3>
+              <p className="text-sm sm:text-base text-[#6F6864] leading-relaxed">
+                To become a leading learning and development institution that inspires individuals to discover their potential, builds future-ready skills and empowers communities through quality education, professional training and lifelong learning. We envision a world where educators inspire, students excel and institutions create opportunities for meaningful growth, confidence and excellence.
+              </p>
+            </div>
+
+            {/* Card 2: Our Mission */}
+            <div className="bg-white border border-[rgba(90,29,22,0.08)] rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#5A1D16]/10 text-[#5A1D16] text-xs font-bold uppercase tracking-wider mb-4">
+                Our Mission
+              </div>
+              <h3 className="text-2xl font-bold text-[#3D221B] mb-3">Our Mission</h3>
+              <p className="text-sm sm:text-base text-[#6F6864] leading-relaxed">
+                To provide engaging, practical and purpose-driven learning experiences that equip educators, students and young professionals with the knowledge, skills, confidence and values needed to succeed in an ever-evolving world.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* What We Do Section - Core Pillars */}
+      <section className="py-16 sm:py-20 bg-white border-b border-[rgba(90,29,22,0.06)]">
+        <Container>
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E9B13A]/15 text-[#5A1D16] text-xs font-bold uppercase tracking-widest">
+              CORE PILLARS
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#3D221B]">
+              What We Do
+            </h2>
+            <p className="text-sm sm:text-base text-[#6F6864]">
+              Empowering every dimension of learning and institutional excellence in Bangalore.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Pillar 1: Educator Development */}
+            <div className="bg-white border border-[rgba(90,29,22,0.08)] rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+              <div className="w-12 h-12 rounded-xl bg-[#5A1D16]/10 text-[#5A1D16] flex items-center justify-center mb-5">
+                <GraduationCap className="w-6 h-6 text-[#5A1D16]" />
+              </div>
+              <h3 className="text-xl font-bold text-[#3D221B] mb-2.5">
+                Educator Development
+              </h3>
+              <p className="text-sm text-[#6F6864] leading-relaxed">
+                NTT programmes, teacher training, classroom management and early childhood education.
+              </p>
+            </div>
+
+            {/* Pillar 2: Student Development */}
+            <div className="bg-white border border-[rgba(90,29,22,0.08)] rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+              <div className="w-12 h-12 rounded-xl bg-[#E9B13A]/20 text-[#5A1D16] flex items-center justify-center mb-5">
+                <Users className="w-6 h-6 text-[#5A1D16]" />
+              </div>
+              <h3 className="text-xl font-bold text-[#3D221B] mb-2.5">
+                Student Development
+              </h3>
+              <p className="text-sm text-[#6F6864] leading-relaxed">
+                Communication, public speaking, life skills, personality development and employability.
+              </p>
+            </div>
+
+            {/* Pillar 3: Institutional Development */}
+            <div className="bg-white border border-[rgba(90,29,22,0.08)] rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+              <div className="w-12 h-12 rounded-xl bg-[#5A1D16]/10 text-[#5A1D16] flex items-center justify-center mb-5">
+                <Building2 className="w-6 h-6 text-[#5A1D16]" />
+              </div>
+              <h3 className="text-xl font-bold text-[#3D221B] mb-2.5">
+                Institutional Development
+              </h3>
+              <p className="text-sm text-[#6F6864] leading-relaxed">
+                College workshops, faculty development, professional skills and institutional training.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* 2. FEATURED PROGRAMS: Embla Horizontal Slider (1 mobile / 2 tablet / 3 desktop) */}
       <Section id="courses" background="white" className="py-16 sm:py-24">

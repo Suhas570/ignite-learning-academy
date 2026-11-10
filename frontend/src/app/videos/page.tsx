@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Video Gallery & Lecture Demonstrations | Ignite Learning Academy",
   description:
     "Watch video demonstrations: Montessori material presentations, kindergarten classroom practicums, and annual convocation ceremonies at Ignite Learning Academy Bangalore.",
+  alternates: {
+    canonical: "https://ignitelearningacademy.in/videos",
+  },
 };
 
 export const revalidate = 60;

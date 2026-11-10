@@ -11,22 +11,27 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           {/* Column 1: Brand & About */}
           <div className="space-y-4">
-            {/* Brand Logo - Clean borderless container without harsh white box or drop-shadows */}
-            <Link
-              href="/"
-              className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E9B13A] rounded-lg transition-opacity hover:opacity-95"
-              aria-label="Ignite Learning Academy Home"
-            >
-              <Image
-                src="/ilogo.png"
-                alt="Ignite Learning Academy"
-                width={96}
-                height={96}
-                className="h-14 w-auto md:h-20 object-contain mix-blend-multiply"
-              />
-            </Link>
+            {/* Brand Logo & Name */}
+            <div className="flex items-center gap-3">
+              <Link
+                href="/"
+                className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E9B13A] rounded-lg transition-opacity hover:opacity-95"
+                aria-label="Ignite Learning Academy Home"
+              >
+                <Image
+                  src="/ilogo.png"
+                  alt="Ignite Learning Academy"
+                  width={120}
+                  height={120}
+                  className="h-14 w-auto md:h-18 object-contain brightness-0 invert opacity-95"
+                />
+              </Link>
+              <span className="text-lg font-bold text-white tracking-wide">
+                Ignite Learning Academy
+              </span>
+            </div>
             <p className="text-sm font-semibold text-[#E9B13A]">
-              Empowering Teachers. Inspiring Students. Shaping the Future.
+              Igniting Potential. Inspiring Growth. Empowering Futures.
             </p>
             <p className="text-xs leading-relaxed text-white/70">
               Premier educator certifications and transformative student programs in Bangalore.

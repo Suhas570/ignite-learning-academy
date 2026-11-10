@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Ignite Learning Academy",
   description:
     "Learn how Ignite Learning Academy collects, handles, and protects personal information from students, parents, and teacher-training applicants in Bangalore.",
+  alternates: {
+    canonical: "https://ignitelearningacademy.in/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

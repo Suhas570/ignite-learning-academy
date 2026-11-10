@@ -24,8 +24,8 @@ const SLIDES: SlideData[] = [
     image: "/hero/teacher-training-seminar.jpg",
     alt: "Educator conducting early childhood teacher training seminar at Ignite Learning Academy Bangalore",
     badge: "Admissions Open 2026 Batches",
-    headline: "Empowering Teachers. Inspiring Students.",
-    highlight: "Shaping the Future.",
+    headline: "Igniting Potential. Inspiring Growth.",
+    highlight: "Empowering Futures.",
     description:
       "Bangalore's premier institute for accredited Nursery Teachers Training (NTT) diplomas, experiential pedagogy, and transformative student public speaking & life skills.",
   },

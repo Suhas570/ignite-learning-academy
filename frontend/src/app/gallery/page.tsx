@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Campus & Student Life Photo Gallery | Ignite Learning Academy",
   description:
     "Explore our photo gallery: Montessori classroom workshops, student practicums, convocation highlights, and teacher training facilities in Bangalore.",
+  alternates: {
+    canonical: "https://ignitelearningacademy.in/gallery",
+  },
 };
 
 export const revalidate = 60;

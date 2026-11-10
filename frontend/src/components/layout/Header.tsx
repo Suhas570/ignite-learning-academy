@@ -209,7 +209,7 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Main Navbar - Solid White Background */}
-      <nav className="border-b border-[rgba(90,29,22,0.08)] bg-white py-2 md:py-2.5">
+      <nav className="border-b border-[rgba(90,29,22,0.08)] bg-white py-1 md:py-1.5">
         <Container className="flex items-center justify-between">
           {/* Brand Logo - Clean borderless container with mix-blend-multiply */}
           <Link
@@ -220,10 +220,10 @@ export const Header: React.FC = () => {
             <Image
               src="/ilogo.png"
               alt="Ignite Learning Academy"
-              width={96}
-              height={96}
+              width={160}
+              height={160}
               priority
-              className="h-14 w-auto md:h-20 object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
+              className="h-16 md:h-24 lg:h-28 w-auto object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
             />
           </Link>
 

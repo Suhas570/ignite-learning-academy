@@ -39,12 +39,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: "Course Not Found | Ignite Learning Academy",
       description: "The requested teacher training course could not be located.",
+      alternates: {
+        canonical: `https://ignitelearningacademy.in/courses/${slug}`,
+      },
     };
   }
 
   return {
     title: `${course.title} | Ignite Learning Academy Bangalore`,
     description: course.shortDescription,
+    alternates: {
+      canonical: `https://ignitelearningacademy.in/courses/${slug}`,
+    },
   };
 }
 

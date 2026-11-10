@@ -11,18 +11,14 @@ interface CourseCardProps {
 }
 
 const DEFAULT_COURSE_IMAGES: Record<string, string> = {
-  "nursery-teachers-training": "/courses/nursery-teachers-training.jpg",
-  "public-speaking-for-juniors":
-    "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=800&auto=format&fit=crop",
-  "life-skills-for-juniors":
-    "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=800&auto=format&fit=crop",
-  "public-speaking-for-seniors":
-    "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=800&auto=format&fit=crop",
-  "life-skills-for-seniors":
-    "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
-  "teachers-training-certificate-program": "/hero/teacher-training-seminar.jpg",
+  "nursery-teachers-training": "/images/courses/ntt.jpg",
+  "public-speaking-for-juniors": "/images/courses/speaking-juniors.jpg",
+  "life-skills-for-juniors": "/images/courses/life-skills-juniors.jpg",
+  "public-speaking-for-seniors": "/images/courses/speaking-seniors.jpg",
+  "life-skills-for-seniors": "/images/courses/life-skills-seniors.jpg",
+  "teachers-training-certificate-program": "/images/courses/teacher-training-certificate.jpg",
   "communication-for-impact": "/hero/early-childhood-storytelling.jpg",
-  "play-based-learning-for-teachers": "/courses/nursery-teachers-training.jpg",
+  "play-based-learning-for-teachers": "/images/courses/ntt.jpg",
   "communication-skills-for-educators": "/hero/early-childhood-storytelling.jpg",
 };
 
@@ -35,7 +31,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({
     imageUrl ||
     course.image ||
     DEFAULT_COURSE_IMAGES[course.slug] ||
-    "/courses/nursery-teachers-training.jpg";
+    "/images/courses/ntt.jpg";
 
   const categoryLabel =
     course.category === "teachers" ? "Teacher Training" : "Student Training";
@@ -73,14 +69,26 @@ export const CourseCard: React.FC<CourseCardProps> = ({
           </span>
         </div>
 
-        {/* Sub-badge pill pinned above image bottom */}
+        {/* Sub-badge pill pinned above image bottom - right padded to prevent logo overlap */}
         {course.badge && (
-          <div className="absolute bottom-3 left-4 right-4 z-10">
+          <div className="absolute bottom-3 left-4 right-14 md:right-16 z-10">
             <span className="inline-block text-[11px] font-medium text-white/95 bg-black/40 backdrop-blur-xs px-2.5 py-0.5 rounded-md truncate max-w-full">
               {course.badge}
             </span>
           </div>
         )}
+
+        {/* Ignite Logo Watermark */}
+        <div className="absolute bottom-2 right-2 z-10 pointer-events-none">
+          <Image
+            src="/logo.png"
+            alt="Ignite Logo"
+            width={48}
+            height={48}
+            className="w-10 md:w-12 h-auto opacity-80 drop-shadow-md object-contain"
+            unoptimized
+          />
+        </div>
       </div>
 
       {/* Bottom Section: White Background Content (40% height) */}

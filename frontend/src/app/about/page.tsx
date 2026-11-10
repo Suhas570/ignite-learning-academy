@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "About Us | Ignite Learning Academy — Premier Teacher Training",
   description:
     "Discover the mission, child-centred philosophy, and seasoned faculty behind Ignite Learning Academy in Bangalore. Empowering early childhood educators with world-class pedagogical skills.",
+  alternates: {
+    canonical: "https://ignitelearningacademy.in/about",
+  },
 };
 
 const PHILOSOPHY_PILLARS = [

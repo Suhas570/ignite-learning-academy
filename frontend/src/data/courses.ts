@@ -27,8 +27,7 @@ export const COURSES: Course[] = [
     badge: "Students (Ages 6–11)",
     featured: true,
     category: "students",
-    image:
-      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=800&auto=format&fit=crop",
+    image: "/images/courses/speaking-juniors.jpg",
     shortDescription:
       "Nurture natural stage confidence, clear articulation, expressive body language, and creative storytelling in a fun, supportive atmosphere.",
     description:
@@ -56,8 +55,7 @@ export const COURSES: Course[] = [
     badge: "Students (Ages 12–18)",
     featured: true,
     category: "students",
-    image:
-      "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=800&auto=format&fit=crop",
+    image: "/images/courses/speaking-seniors.jpg",
     shortDescription:
       "Master parliamentary debate, persuasive rhetoric, TED-style keynote delivery, and compelling on-stage argumentation for teens.",
     description:
@@ -85,8 +83,7 @@ export const COURSES: Course[] = [
     badge: "Students (Ages 6–11)",
     featured: true,
     category: "students",
-    image:
-      "https://images.unsplash.com/photo-1587691592099-24045742c181?q=80&w=800&auto=format&fit=crop",
+    image: "/images/courses/life-skills-juniors.jpg",
     shortDescription:
       "Develop emotional intelligence, positive friendship habits, healthy self-regulation, empathy, and everyday creative problem-solving.",
     description:
@@ -128,8 +125,7 @@ export const COURSES: Course[] = [
     badge: "Students (Ages 12–18)",
     featured: true,
     category: "students",
-    image:
-      "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
+    image: "/images/courses/life-skills-seniors.jpg",
     shortDescription:
       "Crucial real-world preparedness: personal finance, time management, critical thinking, stress resilience, and self-leadership.",
     description:
@@ -175,7 +171,7 @@ export const COURSES: Course[] = [
     badge: "Diploma & Certification",
     featured: true,
     category: "teachers",
-    image: "/courses/nursery-teachers-training.jpg",
+    image: "/images/courses/ntt.jpg",
     shortDescription:
       "Develop socially aware teachers who understand child psychology, are sensitive to individual needs, and can provide appropriate educational and personal support in early childhood settings.",
     description:
@@ -252,6 +248,7 @@ export const COURSES: Course[] = [
     badge: "Certificate Program",
     featured: true,
     category: "teachers",
+    image: "/images/courses/teacher-training-certificate.jpg",
     shortDescription:
       "Fast-track 3-month certificate in contemporary pedagogy, child-centric classroom design, active learning aids, and student assessment.",
     description:

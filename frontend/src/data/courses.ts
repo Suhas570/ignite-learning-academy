@@ -209,6 +209,7 @@ export const COURSES: Course[] = [
     badge: "Professional Certificate",
     featured: true,
     category: "teachers",
+    image: "/images/courses/speaking-english2.jpg",
     shortDescription:
       "This course is designed to be completed in six consecutive weeks. Once enrolled, a learner completes the modules in sequence to earn a Certificate.",
     description:

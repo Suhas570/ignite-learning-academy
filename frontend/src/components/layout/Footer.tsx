@@ -15,16 +15,18 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3">
               <Link
                 href="/"
-                className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E9B13A] rounded-lg transition-opacity hover:opacity-95"
+                className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E9B13A] rounded-full transition-opacity hover:opacity-95"
                 aria-label="Ignite Learning Academy Home"
               >
-                <Image
-                  src="/ilogo.png"
-                  alt="Ignite Learning Academy"
-                  width={120}
-                  height={120}
-                  className="h-14 w-auto md:h-18 object-contain brightness-0 invert opacity-95"
-                />
+                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center p-2 overflow-hidden">
+                  <Image
+                    src="/ilogo.png"
+                    alt="Ignite Learning Academy"
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </Link>
               <span className="text-lg font-bold text-white tracking-wide">
                 Ignite Learning Academy
@@ -61,7 +63,7 @@ export const Footer: React.FC = () => {
                 </svg>
               </a>
               <a
-                href="mailto:ignitelearningacademy8@gmail.com"
+                href="mailto:sophiaraymond19@gmail.com"
                 aria-label="Gmail"
                 title="Gmail"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#E9B13A] hover:text-[#3D221B] flex items-center justify-center transition-all duration-300"
@@ -144,7 +146,7 @@ export const Footer: React.FC = () => {
                 <svg className="w-5 h-5 text-[#E9B13A] shrink-0 mt-0.5 fill-current" viewBox="0 0 24 24">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
-                <span>Bangalore Campus, Tech City Knowledge Corridor, India</span>
+                <span>Bengaluru &amp; Pune Campuses, India</span>
               </div>
               <div className="flex items-center gap-3">
                 <svg className="w-5 h-5 text-[#E9B13A] shrink-0 fill-current" viewBox="0 0 24 24">
@@ -158,8 +160,8 @@ export const Footer: React.FC = () => {
                 <svg className="w-5 h-5 text-[#E9B13A] shrink-0 fill-current" viewBox="0 0 24 24">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                 </svg>
-                <a href="mailto:ignitelearningacademy8@gmail.com" className="hover:text-[#E9B13A] transition-colors">
-                  ignitelearningacademy8@gmail.com
+                <a href="mailto:sophiaraymond19@gmail.com" className="hover:text-[#E9B13A] transition-colors">
+                  sophiaraymond19@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3">

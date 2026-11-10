@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -250,6 +251,60 @@ export default function AboutPage() {
                 </Button>
               </div>
             </Card>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 6. Accreditations & Authorizations */}
+      <Section background="white" className="border-t border-[rgba(90,29,22,0.06)]">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Left Column */}
+            <div className="space-y-4">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#E9B13A]">
+                Accreditation & Quality
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#3D221B]">
+                Our Accreditations & Authorizations
+              </h2>
+              <p className="text-sm sm:text-base text-[#6F6864] leading-relaxed">
+                Ignite Learning Academy is proudly authorized by The Foundation School of Education, New Delhi.
+              </p>
+            </div>
+
+            {/* Right Column */}
+            <div className="flex justify-center">
+              <div className="bg-white p-2 rounded-xl shadow-xl border border-gray-100">
+                <Image
+                  src="/images/authorization-certificate.png"
+                  width={800}
+                  height={1000}
+                  alt="Authorization Certificate"
+                  className="w-full max-w-sm mx-auto h-auto rounded-lg object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 7. Student Development Framework */}
+      <Section background="cream" className="border-t border-[rgba(90,29,22,0.06)]">
+        <Container>
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#E9B13A]">
+              Student Development Framework
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#3D221B]">
+              Our Framework for Student Development
+            </h2>
+            <Image
+              src="/images/three-pillars.png"
+              alt="Our Framework for Student Development"
+              width={1200}
+              height={800}
+              className="mx-auto rounded-xl shadow-lg w-full max-w-3xl h-auto object-contain my-8"
+            />
           </div>
         </Container>
       </Section>

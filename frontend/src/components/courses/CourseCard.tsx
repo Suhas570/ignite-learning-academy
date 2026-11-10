@@ -17,7 +17,7 @@ const DEFAULT_COURSE_IMAGES: Record<string, string> = {
   "public-speaking-for-seniors": "/images/courses/speaking-seniors.jpg",
   "life-skills-for-seniors": "/images/courses/life-skills-seniors.jpg",
   "teachers-training-certificate-program": "/images/courses/teacher-training-certificate.jpg",
-  "communication-for-impact": "/hero/early-childhood-storytelling.jpg",
+  "communication-for-impact": "/images/courses/speaking-english2.jpg",
   "play-based-learning-for-teachers": "/images/courses/ntt.jpg",
   "communication-skills-for-educators": "/hero/early-childhood-storytelling.jpg",
 };
@@ -85,7 +85,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({
             alt="Ignite Logo"
             width={48}
             height={48}
-            className="w-10 md:w-12 h-auto opacity-80 drop-shadow-md object-contain"
+            className="w-10 md:w-12 h-auto opacity-80 drop-shadow-md object-contain mix-blend-multiply"
             unoptimized
           />
         </div>

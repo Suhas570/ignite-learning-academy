@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { LoadingScreen } from "@/components/layout/LoadingScreen";
 import { getSiteSettings } from "@/lib/api";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -47,6 +48,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={plusJakarta.variable} suppressHydrationWarning>
       <body className="font-sans min-h-screen flex flex-col bg-white text-[#6F6864] antialiased">
+        <LoadingScreen />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

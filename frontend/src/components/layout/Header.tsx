@@ -71,6 +71,15 @@ const TEACHER_COURSES: CourseLink[] = [
   },
 ];
 
+function truncateAtWord(text: string, maxLength: number): string {
+  const trimmed = text.trim();
+  if (trimmed.length <= maxLength) return trimmed;
+  const slice = trimmed.slice(0, maxLength);
+  const lastSpace = slice.lastIndexOf(" ");
+  const cut = lastSpace > 0 ? slice.slice(0, lastSpace) : slice;
+  return `${cut.replace(/[.,;:\-–—]+$/, "")}...`;
+}
+
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [desktopCoursesOpen, setDesktopCoursesOpen] = useState(false);
@@ -110,9 +119,7 @@ export const Header: React.FC = () => {
             name: doc.title,
             href: `/courses/${doc.slug}`,
             tag: doc.targetAge || doc.duration || "",
-            desc: doc.description
-              ? doc.description.slice(0, 55) + (doc.description.length > 55 ? "..." : "")
-              : "",
+            desc: doc.description ? truncateAtWord(doc.description, 55) : "",
           };
           if (doc.category === "Teacher Training") {
             teacherList.push(link);
@@ -182,7 +189,7 @@ export const Header: React.FC = () => {
           <div className="flex items-center gap-3 sm:gap-6">
             <span className="hidden sm:inline-flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5" />
-              <span>Bangalore Campus</span>
+              <span>Bengaluru &amp; Pune</span>
             </span>
             <span className="hidden sm:inline text-black/20">|</span>
             <a
@@ -196,7 +203,7 @@ export const Header: React.FC = () => {
 
           <div className="flex items-center gap-2">
             <span className="hidden md:inline-flex items-center gap-1 bg-[#3D221B]/10 px-2.5 py-0.5 rounded-full text-[11px] tracking-wide uppercase font-bold">
-              🎓 ADMISSION OPEN FOR JUNE EXAM
+              🎓 ADMISSIONS OPEN
             </span>
             <Link
               href="/contact"
@@ -209,21 +216,21 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Main Navbar - Solid White Background */}
-      <nav className="border-b border-[rgba(90,29,22,0.08)] bg-white py-1 md:py-1.5">
-        <Container className="flex items-center justify-between">
+      <nav className="border-b border-[rgba(90,29,22,0.08)] bg-white py-2.5">
+        <Container className="flex items-center justify-between gap-4">
           {/* Brand Logo - Clean borderless container with mix-blend-multiply */}
           <Link
             href="/"
-            className="flex items-center group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5A1D16] rounded-lg"
+            className="flex items-center shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5A1D16] rounded-lg"
             aria-label="Ignite Learning Academy Home"
           >
             <Image
-              src="/ilogo.png"
+              src="/ignite-logo-1.png"
               alt="Ignite Learning Academy"
-              width={160}
-              height={160}
+              width={240}
+              height={144}
               priority
-              className="h-16 md:h-24 lg:h-28 w-auto object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
+              className="h-16 md:h-20 lg:h-24 w-auto object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
             />
           </Link>
 
@@ -284,12 +291,13 @@ export const Header: React.FC = () => {
                     onMouseEnter={() => setActiveCategory("children")}
                     className="relative"
                   >
-                    <button
-                      type="button"
+                    <Link
+                      href="/student-training"
                       id="btnDropdownChildren"
-                      onClick={() =>
-                        setActiveCategory(activeCategory === "children" ? null : "children")
-                      }
+                      onClick={() => {
+                        setDesktopCoursesOpen(false);
+                        setActiveCategory(null);
+                      }}
                       className={`w-full flex items-center justify-between p-2.5 rounded-lg text-left transition-colors font-semibold text-sm ${
                         activeCategory === "children"
                           ? "bg-[#FFF8F5] text-[#5A1D16]"
@@ -314,7 +322,7 @@ export const Header: React.FC = () => {
                           activeCategory === "children" ? "translate-x-0.5 text-[#5A1D16]" : ""
                         }`}
                       />
-                    </button>
+                    </Link>
                   </div>
 
                   {/* Category 2: Teacher Training */}
@@ -322,12 +330,13 @@ export const Header: React.FC = () => {
                     onMouseEnter={() => setActiveCategory("teachers")}
                     className="relative mt-1"
                   >
-                    <button
-                      type="button"
+                    <Link
+                      href="/teacher-training"
                       id="btnDropdownTeacher"
-                      onClick={() =>
-                        setActiveCategory(activeCategory === "teachers" ? null : "teachers")
-                      }
+                      onClick={() => {
+                        setDesktopCoursesOpen(false);
+                        setActiveCategory(null);
+                      }}
                       className={`w-full flex items-center justify-between p-2.5 rounded-lg text-left transition-colors font-semibold text-sm ${
                         activeCategory === "teachers"
                           ? "bg-[#FFF8F5] text-[#5A1D16]"
@@ -352,7 +361,7 @@ export const Header: React.FC = () => {
                           activeCategory === "teachers" ? "translate-x-0.5 text-[#5A1D16]" : ""
                         }`}
                       />
-                    </button>
+                    </Link>
                   </div>
 
                   {/* Divider & View All */}
@@ -383,11 +392,21 @@ export const Header: React.FC = () => {
                       }}
                     >
                       <div className="flex items-center justify-between pb-2 mb-2 border-b border-[rgba(90,29,22,0.08)]">
-                        <span className="text-xs font-bold uppercase tracking-wider text-[#5A1D16]">
-                          {activeCategory === "children"
-                            ? "Student Training Courses"
-                            : "Teacher Training Programs"}
-                        </span>
+                        <Link
+                          href={activeCategory === "children" ? "/student-training" : "/teacher-training"}
+                          onClick={() => {
+                            setDesktopCoursesOpen(false);
+                            setActiveCategory(null);
+                          }}
+                          className="text-xs font-bold uppercase tracking-wider text-[#5A1D16] hover:underline flex items-center gap-1"
+                        >
+                          <span>
+                            {activeCategory === "children"
+                              ? "Student Training Courses"
+                              : "Teacher Training Programs"}
+                          </span>
+                          <ArrowRight className="w-3 h-3" />
+                        </Link>
                         <span className="text-[10px] bg-[#E9B13A]/20 text-[#3D221B] px-2 py-0.5 rounded-full font-bold">
                           {activeCategory === "children"
                             ? `${childrenCourses.length} Courses`
@@ -546,6 +565,14 @@ export const Header: React.FC = () => {
                     {/* Level 3: ONLY Student Courses */}
                     {mobileChildrenOpen && (
                       <div className="px-3 pb-2 pt-1 space-y-1 bg-white border-t border-[rgba(90,29,22,0.06)]">
+                        <Link
+                          href="/student-training"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center justify-between py-2 px-2 rounded-md bg-[#FFF8F5] text-xs font-bold text-[#5A1D16]"
+                        >
+                          <span>All Student Training</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                         {childrenCourses.map((course) => (
                           <Link
                             key={course.href}
@@ -588,6 +615,14 @@ export const Header: React.FC = () => {
                     {/* Level 3: ONLY Teacher Courses */}
                     {mobileTeacherOpen && (
                       <div className="px-3 pb-2 pt-1 space-y-1 bg-white border-t border-[rgba(90,29,22,0.06)]">
+                        <Link
+                          href="/teacher-training"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center justify-between py-2 px-2 rounded-md bg-[#FFF8F5] text-xs font-bold text-[#5A1D16]"
+                        >
+                          <span>All Teacher Training</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                         {teacherCourses.map((course) => (
                           <Link
                             key={course.href}

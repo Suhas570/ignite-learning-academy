@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useCallback } from "react";
-import { MediaItem, extractYouTubeId, extractInstagramShortcode, resolveMediaUrl } from "@/lib/api";
+import { MediaItem, extractYouTubeId, extractInstagramShortcode, resolveMediaUrl, cleanMediaTitle } from "@/lib/api";
 
 interface VideoModalProps {
   item: MediaItem | null;
@@ -92,6 +92,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ item, onClose }) => {
               controls
               autoPlay
               playsInline
+              preload="metadata"
               className="w-full h-full object-contain"
             >
               Your browser does not support HTML5 video streaming.
@@ -119,7 +120,9 @@ export const VideoModal: React.FC<VideoModalProps> = ({ item, onClose }) => {
             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#E9B13A] text-[#3D221B]">
               {item.category}
             </span>
-            <h3 className="text-base sm:text-lg font-bold text-white">{item.title}</h3>
+            <h3 className="text-base sm:text-lg font-bold text-white line-clamp-2">
+              {cleanMediaTitle(item.title)}
+            </h3>
             {item.description && (
               <p className="text-xs sm:text-sm text-white/70 max-w-xl leading-relaxed">
                 {item.description}

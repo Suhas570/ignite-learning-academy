@@ -9,7 +9,7 @@ import { Scale, BookOpen, AlertTriangle, Mail, Phone, MapPin } from "lucide-reac
 export const metadata: Metadata = {
   title: "Terms & Conditions | Ignite Learning Academy",
   description:
-    "Review the terms of engagement, intellectual property policies, enrollment guidelines, and code of conduct for Ignite Learning Academy in Bangalore.",
+    "Review the terms of engagement, intellectual property policies, enrollment guidelines, and code of conduct for Ignite Learning Academy across Bengaluru and Pune.",
   alternates: {
     canonical: "https://ignitelearningacademy.in/terms-and-conditions",
   },
@@ -79,7 +79,7 @@ export default function TermsAndConditionsPage() {
                 </li>
               </ul>
               <p className="text-xs sm:text-sm text-[#6F6864]">
-                Course schedules, batch timings, syllabi modules, and practicum locations may be updated periodically to maintain compliance with progressive early childhood pedagogy (NEP 2020) and optimal learning outcomes.
+                Course schedules, batch timings, course modules, and practicum locations may be updated periodically to maintain compliance with progressive early childhood pedagogy (NEP 2020) and optimal learning outcomes.
               </p>
             </div>
 
@@ -176,7 +176,7 @@ export default function TermsAndConditionsPage() {
                 Governing Law &amp; Jurisdiction
               </h2>
               <p>
-                These Terms &amp; Conditions are governed by and construed in accordance with the laws of the Republic of India. Any legal dispute, controversy, or claim arising out of or relating to our educational services or website shall be subject to the exclusive jurisdiction of the competent courts located in <strong>Bangalore, Karnataka, India</strong>.
+                These Terms &amp; Conditions are governed by and construed in accordance with the laws of the Republic of India. Any legal dispute, controversy, or claim arising out of or relating to our educational services or website shall be subject to the exclusive jurisdiction of the competent courts located in <strong>Bengaluru, Karnataka, India</strong>.
               </p>
             </div>
 
@@ -191,8 +191,8 @@ export default function TermsAndConditionsPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm">
                 <div className="flex items-center gap-2.5 text-[#3D221B]">
                   <Mail className="w-4 h-4 text-[#5A1D16]" />
-                  <a href="mailto:ignitelearningacademy8@gmail.com" className="hover:text-[#5A1D16] font-medium underline">
-                    ignitelearningacademy8@gmail.com
+                  <a href="mailto:sophiaraymond19@gmail.com" className="hover:text-[#5A1D16] font-medium underline">
+                    sophiaraymond19@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-2.5 text-[#3D221B]">
@@ -203,7 +203,7 @@ export default function TermsAndConditionsPage() {
                 </div>
                 <div className="sm:col-span-2 flex items-start gap-2.5 text-[#6F6864]">
                   <MapPin className="w-4 h-4 text-[#5A1D16] shrink-0 mt-0.5" />
-                  <span>Bangalore Campus, Tech City Knowledge Corridor, Karnataka, India</span>
+                  <span>Ignite Learning Academy, Bengaluru &amp; Pune Campuses, India</span>
                 </div>
               </div>
             </div>

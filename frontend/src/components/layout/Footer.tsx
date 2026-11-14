@@ -11,32 +11,27 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           {/* Column 1: Brand & About */}
           <div className="space-y-4">
-            {/* Brand Logo & Name */}
-            <div className="flex items-center gap-3">
-              <Link
-                href="/"
-                className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E9B13A] rounded-full transition-opacity hover:opacity-95"
-                aria-label="Ignite Learning Academy Home"
-              >
-                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center p-2 overflow-hidden">
-                  <Image
-                    src="/ilogo.png"
-                    alt="Ignite Learning Academy"
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </Link>
-              <span className="text-lg font-bold text-white tracking-wide">
-                Ignite Learning Academy
-              </span>
-            </div>
+            {/* Brand Logo */}
+            <Link
+              href="/"
+              className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E9B13A] rounded-2xl transition-transform hover:scale-[1.02]"
+              aria-label="Ignite Learning Academy Home"
+            >
+              <div className="bg-white rounded-2xl px-4 py-3 w-36 md:w-44 flex items-center justify-center shadow-lg shrink-0">
+                <Image
+                  src="/ignite-logo-1.png"
+                  alt="Ignite Learning Academy"
+                  width={240}
+                  height={144}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </Link>
             <p className="text-sm font-semibold text-[#E9B13A]">
               Igniting Potential. Inspiring Growth. Empowering Futures.
             </p>
             <p className="text-xs leading-relaxed text-white/70">
-              Premier educator certifications and transformative student programs in Bangalore.
+              Premier educator certifications and transformative student programmes across Bengaluru and Pune.
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-3 pt-2">
@@ -90,8 +85,18 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/teacher-training" className="hover:text-[#E9B13A] transition-colors flex items-center gap-2">
+                  <span className="text-[#E9B13A]">›</span> Teacher Training
+                </Link>
+              </li>
+              <li>
+                <Link href="/student-training" className="hover:text-[#E9B13A] transition-colors flex items-center gap-2">
+                  <span className="text-[#E9B13A]">›</span> Student Training
+                </Link>
+              </li>
+              <li>
                 <Link href="/courses" className="hover:text-[#E9B13A] transition-colors flex items-center gap-2">
-                  <span className="text-[#E9B13A]">›</span> Our Programmes
+                  <span className="text-[#E9B13A]">›</span> All Programmes
                 </Link>
               </li>
               <li>
@@ -168,7 +173,7 @@ export const Footer: React.FC = () => {
                 <svg className="w-5 h-5 text-[#E9B13A] shrink-0 fill-current" viewBox="0 0 24 24">
                   <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
                 </svg>
-                <span>Mon – Sun: 9:00 AM – 6:00 PM</span>
+                <span>Mon – Sat: 9:00 AM – 6:00 PM</span>
               </div>
             </div>
           </div>

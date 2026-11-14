@@ -11,7 +11,7 @@ import { CHILDREN_GALLERY_PHOTOS } from "@/data/galleryPhotos";
 export const metadata: Metadata = {
   title: "Campus & Student Life Photo Gallery | Ignite Learning Academy",
   description:
-    "Explore our photo gallery: Montessori classroom workshops, student practicums, convocation highlights, and teacher training facilities in Bangalore.",
+    "Explore our photo gallery: Montessori classrooms, creative workshops, student activities, and teacher training sessions in Bengaluru and Pune.",
   alternates: {
     canonical: "https://ignitelearningacademy.in/gallery",
   },
@@ -32,7 +32,7 @@ export default async function GalleryPage() {
     "@type": "ImageGallery",
     name: "Ignite Learning Academy Photo Gallery",
     description:
-      "Visual tour of early childhood teacher training classrooms, Montessori apparatus workshops, and campus life in Bangalore.",
+      "Visual tour of early childhood teacher training classrooms, Montessori apparatus workshops, and campus life in Bengaluru and Pune.",
     image: photos.map((photo) => ({
       "@type": "ImageObject",
       name: photo.title,
@@ -54,7 +54,7 @@ export default async function GalleryPage() {
       <PageHero
         badge={<GalleryNavToggle active="photos" />}
         title="Life at Ignite Learning Academy"
-        description="Experience the energy of our teacher preparation workshops, Montessori sensorial labs, and early educator milestone celebrations."
+        description="Explore moments from our Montessori classrooms, creative workshops, student activities, and educator training sessions."
       />
 
       {/* Main Gallery Section */}

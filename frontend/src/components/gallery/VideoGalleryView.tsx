@@ -12,27 +12,26 @@ interface VideoGalleryViewProps {
   initialVideos: MediaItem[];
 }
 
+const CATEGORY_ALIASES: Record<string, string[]> = {
+  courses: ["courses", "classroom", "academics"],
+  classroom: ["courses", "classroom", "academics"],
+  events: ["events", "activities"],
+  workshops: ["workshops", "workshop"],
+  student_work: ["student_work", "student work"],
+  campus: ["campus", "general"],
+};
+
 export const VideoGalleryView: React.FC<VideoGalleryViewProps> = ({ initialVideos }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [activeVideo, setActiveVideo] = useState<MediaItem | null>(null);
 
   const filteredVideos = useMemo(() => {
     if (selectedCategory === "all") return initialVideos;
+    const normalizedSelected = selectedCategory.toLowerCase().trim();
+    const allowed = CATEGORY_ALIASES[normalizedSelected] ?? [normalizedSelected];
     return initialVideos.filter((item) => {
-      const cat = (item.category || "").toLowerCase();
-      if (selectedCategory === "courses" || selectedCategory === "classroom") {
-        return cat === "courses" || cat === "academics" || cat === "classroom";
-      }
-      if (selectedCategory === "events") {
-        return cat === "events" || cat === "activities";
-      }
-      if (selectedCategory === "workshops") {
-        return cat === "workshops" || cat === "courses";
-      }
-      if (selectedCategory === "campus") {
-        return cat === "campus" || cat === "general";
-      }
-      return cat === selectedCategory.toLowerCase();
+      const cat = (item.category || "").toLowerCase().trim();
+      return allowed.includes(cat);
     });
   }, [initialVideos, selectedCategory]);
 

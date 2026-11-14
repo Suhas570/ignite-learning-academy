@@ -54,6 +54,15 @@ body {
 }
 
 /* Seamless Floating Marquee Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes marqueeLeft {
   0% {
     transform: translate3d(0, 0, 0);

@@ -14,7 +14,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Programmes & Certifications | Ignite Learning Academy",
   description:
-    "Explore certified Nursery Teachers Training (NTT) diplomas, Play-Based Learning workshops, and Educator Communication certifications in Bangalore. Admissions open.",
+    "Explore certified Nursery Teachers Training (NTT) diplomas, Play-Based Learning workshops, and Educator Communication certifications in Bengaluru & Pune. Admissions open.",
   alternates: {
     canonical: "https://ignitelearningacademy.in/courses",
   },
@@ -32,8 +32,8 @@ export default async function CoursesPage() {
             <span>Academic Catalog • Admissions Open</span>
           </div>
         }
-        title="Teacher Preparation Programmes & Certifications"
-        description="Designed for aspiring educators, working teachers, and career changers. Our curricula combine international pedagogical best practices with deep practical practicums."
+        title="Academic Programmes & Certifications"
+        description="Designed for aspiring educators, working teachers, and career changers. Our curricula combine international pedagogical best practices with mentored hands-on practice."
       />
 
       {/* 2. Course Grid */}
@@ -123,7 +123,7 @@ export default async function CoursesPage() {
                     variant="primary"
                     className="w-full text-sm py-2.5"
                   >
-                    Learn More & Syllabus
+                    View Programme &amp; Syllabus
                   </Button>
                 </div>
               </Card>
@@ -158,10 +158,12 @@ export default async function CoursesPage() {
                 </div>
                 <div className="text-xs text-[#6F6864]">
                   Email:{" "}
-                  <span className="font-semibold text-[#5A1D16]">admissions@igniteacademy.in</span>
+                  <a href="mailto:sophiaraymond19@gmail.com" className="font-semibold text-[#5A1D16] hover:underline">
+                    sophiaraymond19@gmail.com
+                  </a>
                 </div>
                 <div className="text-xs text-[#6F6864]">
-                  Campus Hours: Monday – Saturday, 9:00 AM – 5:30 PM IST
+                  Campus Hours: Monday – Saturday, 9:00 AM – 6:00 PM IST
                 </div>
               </div>
             </div>

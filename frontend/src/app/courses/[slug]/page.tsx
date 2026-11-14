@@ -1,7 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
+import { Video } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
@@ -46,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${course.title} | Ignite Learning Academy Bangalore`,
+    title: `${course.title} | Ignite Learning Academy`,
     description: course.shortDescription,
     alternates: {
       canonical: `https://ignitelearningacademy.in/courses/${slug}`,
@@ -56,6 +57,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CourseDetailPage({ params }: PageProps) {
   const { slug } = await params;
+  if (slug === "ntt-nursery-teacher-training") {
+    redirect("/courses/nursery-teachers-training");
+  }
   const course = await getCourseBySlug(slug);
 
   if (!course) {
@@ -67,64 +71,97 @@ export default async function CourseDetailPage({ params }: PageProps) {
   const whatsappMessage = encodeURIComponent(
     `Hello! I would like to enquire about the ${course.title} programme at Ignite Learning Academy.`
   );
-  const whatsappUrl = `https://wa.me/9011901930?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/919011901930?text=${whatsappMessage}`;
 
   return (
     <>
-      {/* 1. Header Banner */}
-      <section className="bg-gradient-to-b from-[#FFF8F5] via-white to-white py-14 sm:py-20 border-b border-[rgba(90,29,22,0.06)]">
+      {/* 1. Header Banner & Course Overview Video */}
+      <section className="bg-gradient-to-b from-[#FFF8F5] via-white to-white py-10 sm:py-16 border-b border-[rgba(90,29,22,0.06)]">
         <Container>
-          <div className="max-w-4xl space-y-4">
-            {/* Breadcrumb Navigation */}
-            <nav className="flex items-center gap-2 text-xs font-semibold text-[#6F6864]" aria-label="Breadcrumb">
-              <Link href="/" className="hover:text-[#5A1D16] transition-colors">
-                Home
-              </Link>
-              <span>›</span>
-              <Link href="/courses" className="hover:text-[#5A1D16] transition-colors">
-                Courses
-              </Link>
-              <span>›</span>
-              <span className="text-[#3D221B] font-bold truncate">{course.title}</span>
-            </nav>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            <div className="lg:col-span-7 space-y-4 min-w-0">
+              {/* Breadcrumb Navigation */}
+              <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#6F6864]" aria-label="Breadcrumb">
+                <Link href="/" className="hover:text-[#5A1D16] transition-colors">
+                  Home
+                </Link>
+                <span>›</span>
+                <Link href="/courses" className="hover:text-[#5A1D16] transition-colors">
+                  Courses
+                </Link>
+                <span>›</span>
+                <span className="text-[#3D221B] font-bold truncate">{course.title}</span>
+              </nav>
 
-            {/* Badge & Mode Tag */}
-            <div className="flex flex-wrap items-center gap-2 pt-2">
-              <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#5A1D16] text-white">
-                {course.badge}
-              </span>
-              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#E9B13A]/20 text-[#3D221B] border border-[#E9B13A]/40">
-                Admission Open for June Exam
-              </span>
+              {/* Badge & Mode Tag */}
+              <div className="flex flex-wrap items-center gap-2 pt-2">
+                <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#5A1D16] text-white">
+                  {course.badge}
+                </span>
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#E9B13A]/20 text-[#3D221B] border border-[#E9B13A]/40">
+                  Admissions Open
+                </span>
+              </div>
+
+              {/* Title */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3D221B] tracking-tight leading-tight">
+                {course.title}
+              </h1>
+
+              {/* Short Description */}
+              <p className="text-base sm:text-xl text-[#6F6864] leading-relaxed">
+                {course.shortDescription}
+              </p>
+
+              {/* Key Meta Badges Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-5 border-t border-[rgba(90,29,22,0.08)]">
+                <div className="bg-[#FFF8F5] p-3 rounded-xl border border-[rgba(90,29,22,0.08)]">
+                  <div className="text-[11px] uppercase tracking-wider font-bold text-[#6F6864]">Duration</div>
+                  <div className="text-sm font-extrabold text-[#3D221B] mt-0.5">{course.duration}</div>
+                </div>
+                <div className="bg-[#FFF8F5] p-3 rounded-xl border border-[rgba(90,29,22,0.08)]">
+                  <div className="text-[11px] uppercase tracking-wider font-bold text-[#6F6864]">Delivery Mode</div>
+                  <div className="text-sm font-extrabold text-[#3D221B] mt-0.5">{course.mode.split("(")[0]}</div>
+                </div>
+                <div className="bg-[#FFF8F5] p-3 rounded-xl border border-[rgba(90,29,22,0.08)]">
+                  <div className="text-[11px] uppercase tracking-wider font-bold text-[#6F6864]">Modules</div>
+                  <div className="text-sm font-extrabold text-[#3D221B] mt-0.5">{(course.syllabus || course.modules).length} Core Units</div>
+                </div>
+                <div className="bg-[#FFF8F5] p-3 rounded-xl border border-[rgba(90,29,22,0.08)]">
+                  <div className="text-[11px] uppercase tracking-wider font-bold text-[#6F6864]">
+                    {course.category === "teachers" ? "Placement" : "Learning Format"}
+                  </div>
+                  <div className="text-sm font-extrabold text-[#3D221B] mt-0.5">
+                    {course.category === "teachers" ? "100% Support" : "Activity-Based"}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Title */}
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-[#3D221B] tracking-tight leading-tight">
-              {course.title}
-            </h1>
-
-            {/* Short Description */}
-            <p className="text-base sm:text-xl text-[#6F6864] leading-relaxed max-w-3xl">
-              {course.shortDescription}
-            </p>
-
-            {/* Key Meta Badges Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-[rgba(90,29,22,0.08)]">
-              <div className="bg-[#FFF8F5] p-3 rounded-xl border border-[rgba(90,29,22,0.08)]">
-                <div className="text-[11px] uppercase tracking-wider font-bold text-[#6F6864]">Duration</div>
-                <div className="text-sm font-extrabold text-[#3D221B] mt-0.5">{course.duration}</div>
+            <div className="lg:col-span-5 space-y-3 min-w-0">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#E9B13A]">
+                <Video className="w-4 h-4 text-[#5A1D16]" />
+                <span>Programme Introduction</span>
               </div>
-              <div className="bg-[#FFF8F5] p-3 rounded-xl border border-[rgba(90,29,22,0.08)]">
-                <div className="text-[11px] uppercase tracking-wider font-bold text-[#6F6864]">Delivery Mode</div>
-                <div className="text-sm font-extrabold text-[#3D221B] mt-0.5">{course.mode.split("(")[0]}</div>
-              </div>
-              <div className="bg-[#FFF8F5] p-3 rounded-xl border border-[rgba(90,29,22,0.08)]">
-                <div className="text-[11px] uppercase tracking-wider font-bold text-[#6F6864]">Modules</div>
-                <div className="text-sm font-extrabold text-[#3D221B] mt-0.5">{(course.syllabus || course.modules).length} Core Units</div>
-              </div>
-              <div className="bg-[#FFF8F5] p-3 rounded-xl border border-[rgba(90,29,22,0.08)]">
-                <div className="text-[11px] uppercase tracking-wider font-bold text-[#6F6864]">Placement</div>
-                <div className="text-sm font-extrabold text-[#3D221B] mt-0.5">100% Support</div>
+              <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-lg bg-black border border-[rgba(90,29,22,0.1)]">
+                {course.videoUrl ? (
+                  <video
+                    src={course.videoUrl}
+                    autoPlay
+                    muted
+                    loop
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={course.image}
+                    aria-label={`${course.title} overview video`}
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <div className="flex items-center justify-center w-full h-full text-white">
+                    Video coming soon.
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -136,7 +173,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             {/* Left Main Column: Overview, Modules, Outcomes */}
-            <div className="lg:col-span-8 space-y-12">
+            <div className="lg:col-span-8 space-y-12 min-w-0">
               {/* Overview */}
               <div className="space-y-4">
                 <h2 className="text-2xl font-extrabold text-[#3D221B]">Programme Overview</h2>
@@ -235,7 +272,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
             </div>
 
             {/* Right Column: Sticky Sidebar with WhatsApp CTA & Enquiry Form */}
-            <aside className="lg:col-span-4 space-y-6">
+            <aside className="lg:col-span-4 space-y-6 min-w-0">
               {/* WhatsApp Action Card */}
               <Card className="bg-[#3D221B] text-white p-6 sm:p-8 space-y-5 border-2 border-[#E9B13A]/40 shadow-lg">
                 <div className="space-y-2">
@@ -244,7 +281,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
                   </span>
                   <h3 className="text-xl font-bold text-white">Have Questions About This Course?</h3>
                   <p className="text-xs text-white/80 leading-relaxed">
-                    Chat directly with our academic admissions counselor to get fee breakdowns, batch schedules, and scholarship details.
+                    Chat directly with our academic admissions counsellor to get fee breakdowns, batch schedules, and scholarship details.
                   </p>
                 </div>
 
@@ -266,7 +303,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
               <EnquiryForm
                 defaultCourseSlug={course.slug}
                 title="Enquire About This Course"
-                subtitle="Fill the form to download syllabus & schedule counselor callback."
+                subtitle="Complete the form below to receive the detailed syllabus and schedule a counselling call."
               />
 
               {/* Other Courses Links */}

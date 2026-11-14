@@ -10,7 +10,7 @@ import { PageHero } from "@/components/ui/PageHero";
 export const metadata: Metadata = {
   title: "About Us | Ignite Learning Academy — Premier Teacher Training",
   description:
-    "Discover the mission, child-centred philosophy, and seasoned faculty behind Ignite Learning Academy in Bangalore. Empowering early childhood educators with world-class pedagogical skills.",
+    "Discover the mission, child-centred philosophy, and seasoned faculty behind Ignite Learning Academy in Bengaluru. Empowering early childhood educators with world-class pedagogical skills.",
   alternates: {
     canonical: "https://ignitelearningacademy.in/about",
   },
@@ -49,7 +49,7 @@ const FACULTY_MEMBERS = [
     name: "Prof. Kenneth Fernandez",
     role: "Head of Pedagogy & Practicums",
     credentials: "M.Ed. Curriculum & Instruction, AMI Montessori Diploma",
-    bio: "Former principal of international schools in Bangalore with 18 years dedicated to progressive Montessori sensorial instruction and teacher mentorship.",
+    bio: "Former principal of international schools in Bengaluru with 18 years dedicated to progressive Montessori sensorial instruction and teacher mentorship.",
     initials: "KF",
   },
   {
@@ -70,8 +70,8 @@ const FACULTY_MEMBERS = [
 
 const WHY_CHOOSE_US_POINTS = [
   "Government-Recognized NTT Certification valid across leading CBSE, ICSE, and Montessori schools.",
-  "Deeply experiential practicums with 100+ hours of live classroom teaching in accredited Bangalore preschools.",
-  "Curriculum strictly aligned with the National Education Policy (NEP 2020) and international EYFS benchmarks.",
+  "Deeply experiential practicums with 100+ hours of live classroom teaching in accredited Bengaluru preschools.",
+  "Curriculum aligned with the National Education Policy (NEP 2020) and international EYFS benchmarks.",
   "Personalized mentorship with a low 1:12 faculty-to-trainee ratio during observation and assessment modules.",
   "Flexible weekday and weekend batches tailored to suit working mothers, career changers, and fresh graduates.",
   "Dedicated placement cell offering one-on-one resume crafting, demo teaching rehearsals, and direct school interviews.",
@@ -126,14 +126,14 @@ export default function AboutPage() {
             <div className="lg:col-span-5">
               <Card className="bg-[#FFF8F5] border-2 border-[#E9B13A]/30 p-8 space-y-6 shadow-sm">
                 <div className="text-4xl">🏛️</div>
-                <h3 className="text-xl font-bold text-[#3D221B]">Bangalore&apos;s Premier Teacher Institute</h3>
+                <h3 className="text-xl font-bold text-[#3D221B]">Bengaluru&apos;s Premier Teacher Training Institute</h3>
                 <p className="text-sm text-[#6F6864] leading-relaxed">
                   Founded with the goal of bridging theoretical child development with actual classroom realities,
-                  our Bangalore campus hosts state-of-the-art Montessori sensorial apparatus, children&apos;s literature archives,
+                  our Bengaluru campus hosts state-of-the-art Montessori sensorial apparatus, children&apos;s literature archives,
                   and observation suites.
                 </p>
                 <div className="border-t border-[rgba(90,29,22,0.1)] pt-4 text-xs font-semibold text-[#5A1D16] flex items-center justify-between">
-                  <span>Admissions Office • Bangalore</span>
+                  <span>Admissions Office • Bengaluru &amp; Pune</span>
                   <span>Est. 2020</span>
                 </div>
               </Card>
@@ -180,7 +180,7 @@ export default function AboutPage() {
               Academic Faculty
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#3D221B]">
-              Learn From Leading Pedagogy Leaders
+              Learn From Seasoned Pedagogy Experts
             </h2>
             <p className="text-sm sm:text-base text-[#6F6864]">
               Our mentors bring decades of combined experience directing premier schools, mentoring educator cohorts,
@@ -244,7 +244,7 @@ export default function AboutPage() {
 
               <div className="mt-8 pt-6 border-t border-[rgba(90,29,22,0.08)] flex flex-wrap items-center justify-between gap-4">
                 <p className="text-sm text-[#6F6864]">
-                  Interested in visiting our Bangalore training facility or speaking with an advisor?
+                  Interested in visiting our Bengaluru training facility or speaking with an advisor?
                 </p>
                 <Button href="/contact" variant="primary" className="text-sm py-2 px-6">
                   Schedule Campus Visit

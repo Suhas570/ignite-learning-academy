@@ -18,16 +18,16 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ignitelearningacademy.in"),
   title: "Ignite Learning Academy | Premier Teacher Training Institute",
   description:
-    "Government-certified Nursery Teacher Training (NTT) Diploma, Montessori workshops, and child psychology training in Bangalore.",
+    "Government-certified Nursery Teacher Training (NTT) Diploma, Montessori workshops, and child psychology training across Bengaluru and Pune.",
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
+    icon: "/ignite-logo-1.png",
+    shortcut: "/ignite-logo-1.png",
+    apple: "/ignite-logo-1.png",
   },
   openGraph: {
     title: "Ignite Learning Academy | Premier Teacher Training Institute",
     description:
-      "Government-certified Nursery Teacher Training (NTT) Diploma, Montessori workshops, and child psychology training in Bangalore.",
+      "Government-certified Nursery Teacher Training (NTT) Diploma, Montessori workshops, and child psychology training across Bengaluru and Pune.",
     url: "https://ignitelearningacademy.in",
     siteName: "Ignite Learning Academy",
     locale: "en_IN",
@@ -47,10 +47,10 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={plusJakarta.variable} suppressHydrationWarning>
-      <body className="font-sans min-h-screen flex flex-col bg-white text-[#6F6864] antialiased">
+      <body className="font-sans min-h-screen flex flex-col bg-white text-[#6F6864] antialiased overflow-x-hidden">
         <LoadingScreen />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 overflow-x-hidden">{children}</main>
         <Footer />
         <WhatsAppButton initialNumber={whatsappNumber} />
       </body>

@@ -16,7 +16,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us & Admissions Enquiry | Ignite Learning Academy Bangalore",
+  title: "Contact Us & Admissions Enquiry | Ignite Learning Academy Bengaluru & Pune",
   description:
     "Get in touch with Ignite Learning Academy. Reach out for Nursery Teachers Training (NTT) diploma admissions, student speech and life skills programs, and campus visits.",
   alternates: {
@@ -27,12 +27,12 @@ export const metadata: Metadata = {
 const CONTACT_INFO = [
   {
     icon: MapPin,
-    title: "Bangalore Campus",
+    title: "Bengaluru & Pune",
     line1: "Ignite Learning Academy",
-    line2: "Main Campus, Bangalore, Karnataka 560001",
+    line2: "Bengaluru & Pune Campuses, India",
     action: {
       label: "Get Directions",
-      href: "https://maps.google.com/?q=Ignite+Learning+Academy+Bangalore",
+      href: "https://maps.google.com/?q=Ignite+Learning+Academy+Bengaluru",
     },
   },
   {
@@ -48,11 +48,11 @@ const CONTACT_INFO = [
   {
     icon: Mail,
     title: "Email Admissions",
-    line1: "ignitelearningacademy8@gmail.com",
-    line2: "General and corporate inquiries",
+    line1: "sophiaraymond19@gmail.com",
+    line2: "General and corporate enquiries",
     action: {
       label: "Send Email",
-      href: "mailto:ignitelearningacademy8@gmail.com",
+      href: "mailto:sophiaraymond19@gmail.com",
     },
   },
   {
@@ -75,11 +75,11 @@ export default function ContactPage() {
         badge={
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#E9B13A]/20 text-[#5A1D16] border border-[#E9B13A]/30">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Admissions & Inquiries</span>
+            <span>Admissions &amp; Enquiries</span>
           </span>
         }
         title="We're Here to Guide Your Educational Journey"
-        description="Whether you're an aspiring early educator looking for accredited NTT certification or a parent seeking transformative communication and life skills for your child, our counseling team is ready to assist you."
+        description="Whether you're an aspiring early educator looking for accredited NTT certification or a parent seeking transformative communication and life skills for your child, our counselling team is ready to assist you."
       />
 
       {/* 2. Main Contact Grid */}
@@ -142,7 +142,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center gap-3 text-sm font-bold text-[#3D221B]">
                   <MessageSquare className="w-5 h-5 text-[#5A1D16]" />
-                  <span>Personal 1-on-1 Academic Counseling</span>
+                  <span>Personal 1-on-1 Academic Counselling</span>
                 </div>
               </div>
             </div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
               <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-[rgba(90,29,22,0.08)]">
                 <EnquiryForm
                   title="Submit an Admissions Enquiry"
-                  subtitle="Fill in your details and our senior counselor will connect with you via call or WhatsApp within 24 hours."
+                  subtitle="Fill in your details and our senior counsellor will connect with you via call or WhatsApp within 24 hours."
                 />
               </div>
             </div>

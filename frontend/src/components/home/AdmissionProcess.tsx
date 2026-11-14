@@ -22,7 +22,7 @@ const ADMISSION_STEPS: AdmissionStep[] = [
     icon: Users,
     title: "Counselling",
     description:
-      "We'll discuss your background and goals. You're welcome to visit the Bangalore campus or join an online session.",
+      "We'll discuss your background and goals. You're welcome to visit our Bengaluru or Pune campus or join an online session.",
   },
   {
     step: 3,
@@ -42,12 +42,12 @@ const ADMISSION_STEPS: AdmissionStep[] = [
 
 export const AdmissionProcess: React.FC = () => {
   return (
-    <section className="py-20 sm:py-28 bg-[#FFF8F5] border-t border-[rgba(90,29,22,0.06)]">
+    <section className="py-16 sm:py-24 bg-white border-t border-[rgba(90,29,22,0.06)]">
       <Container>
         {/* Section Heading matching reference screenshot */}
         <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3D221B] tracking-tight">
-            Admission process
+            Admission Process
           </h2>
         </div>
 

@@ -31,7 +31,7 @@ export const Lightbox: React.FC<LightboxProps> = ({ item, onClose }) => {
 
   if (!item) return null;
 
-  const fullImageUrl = resolveMediaUrl(item.url) || "/logo.png";
+  const fullImageUrl = resolveMediaUrl(item.url) || "/ignite-logo-1.png";
 
   return (
     <div

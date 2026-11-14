@@ -34,7 +34,7 @@ const FAQS: FAQItem[] = [
   {
     question: "Do you provide placement assistance after course completion?",
     answer:
-      "Yes, we provide 100% placement assistance. Our dedicated career support team connects certified graduates with reputed preschools, Montessori institutions, and international schools across Bangalore.",
+      "Yes, we provide 100% placement assistance. Our dedicated career support team connects certified graduates with reputed preschools, Montessori institutions, and international schools across Bengaluru and Pune.",
   },
 ];
 

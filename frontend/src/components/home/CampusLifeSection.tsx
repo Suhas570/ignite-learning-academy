@@ -4,19 +4,67 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Play, Video, ArrowRight } from "lucide-react";
-import { MediaItem, getVideoThumbnail } from "@/lib/api";
+import { MediaItem, getVideoThumbnail, cleanMediaTitle } from "@/lib/api";
 import { VideoModal } from "@/components/gallery/VideoModal";
 
 interface CampusLifeSectionProps {
   videos: MediaItem[];
 }
 
+const FALLBACK_VIDEOS: MediaItem[] = [
+  {
+    id: 31,
+    title: "DIY Ladybug Craft",
+    altText: "DIY Ladybug Craft classroom practicum video",
+    url: "https://res.cloudinary.com/cbbjut8p/video/upload/v1792990999/ignite-academy/___OLD_BUTTONS___CUTE_BUG_BEETLE_A_simple_Best_Out_of_Waste_craft_made_using_old.mp4",
+    thumbnailURL: "/videos/thumbnails/diy-ladybug-craft.jpg",
+    category: "Classroom",
+    mediaType: "video",
+    status: "published",
+    createdAt: "2026-01-01T00:00:00.000Z",
+    updatedAt: "2026-01-01T00:00:00.000Z",
+  },
+  {
+    id: 30,
+    title: "Parts of a Plant Activity",
+    altText: "Parts of a Plant Activity classroom practicum video",
+    url: "https://res.cloudinary.com/cbbjut8p/video/upload/v1792990993/ignite-academy/___Parts_of_a_Plant___Its_Life_Cycle___Prepared_by_teacher_Trainees_at_Fun_n_Joy.mp4",
+    thumbnailURL: "/videos/thumbnails/parts-of-a-plant-activity.jpg",
+    category: "Classroom",
+    mediaType: "video",
+    status: "published",
+    createdAt: "2026-01-01T00:00:00.000Z",
+    updatedAt: "2026-01-01T00:00:00.000Z",
+  },
+  {
+    id: 29,
+    title: "Straw Weaving Craft",
+    altText: "Straw Weaving Craft classroom practicum video",
+    url: "https://res.cloudinary.com/cbbjut8p/video/upload/v1792990988/ignite-academy/Watch_this_straw_craft_come_to_life______At_our_training_sessions__we_believe_in.mp4",
+    thumbnailURL: "/videos/thumbnails/straw-weaving-craft.jpg",
+    category: "Classroom",
+    mediaType: "video",
+    status: "published",
+    createdAt: "2026-01-01T00:00:00.000Z",
+    updatedAt: "2026-01-01T00:00:00.000Z",
+  },
+  {
+    id: 28,
+    title: "Paper Plate Spider Web Craft",
+    altText: "Paper Plate Spider Web Craft classroom practicum video",
+    url: "https://res.cloudinary.com/cbbjut8p/video/upload/v1792990978/ignite-academy/Paper_Plate_Spider_Web_______DIY_TLM_for_PreschoolTurn_a_paper_plate_and_leftove.mp4",
+    thumbnailURL: "/videos/thumbnails/paper-plate-spider-web-craft.jpg",
+    category: "Classroom",
+    mediaType: "video",
+    status: "published",
+    createdAt: "2026-01-01T00:00:00.000Z",
+    updatedAt: "2026-01-01T00:00:00.000Z",
+  },
+];
+
 export const CampusLifeSection: React.FC<CampusLifeSectionProps> = ({ videos }) => {
   const [selectedVideo, setSelectedVideo] = useState<MediaItem | null>(null);
-
-  if (!videos || videos.length === 0) {
-    return null;
-  }
+  const displayedVideos = (videos && videos.length > 0 ? videos : FALLBACK_VIDEOS).slice(0, 4);
 
   return (
     <>
@@ -28,10 +76,10 @@ export const CampusLifeSection: React.FC<CampusLifeSectionProps> = ({ videos }) 
               Campus Life & Practicums
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#3D221B]">
-              Experience Practical Pedagogy in Action
+              Student Activities in Action
             </h2>
             <p className="text-sm sm:text-base text-[#6F6864]">
-              Peek into our authentic Bangalore training classrooms, Montessori apparatus walkthroughs, and live student speech showcases.
+              Explore our vibrant campus life, creative student workshops, and hands-on learning experiences.
             </p>
           </div>
 
@@ -44,10 +92,11 @@ export const CampusLifeSection: React.FC<CampusLifeSectionProps> = ({ videos }) 
           </Link>
         </div>
 
-        {/* 4-Column / 2x2 Grid with Play Overlay */}
+        {/* 4-Column Grid with Play Overlay */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {videos.slice(0, 4).map((video) => {
+          {displayedVideos.map((video) => {
             const thumbUrl = getVideoThumbnail(video);
+            const displayTitle = cleanMediaTitle(video.title);
 
             return (
               <div
@@ -61,14 +110,14 @@ export const CampusLifeSection: React.FC<CampusLifeSectionProps> = ({ videos }) 
                 }}
                 tabIndex={0}
                 role="button"
-                aria-label={`Watch video: ${video.title}`}
+                aria-label={`Watch video: ${displayTitle}`}
                 className="group relative flex flex-col rounded-2xl overflow-hidden bg-white border border-[rgba(90,29,22,0.1)] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#5A1D16]"
               >
                 {/* Thumbnail Container */}
                 <div className="relative aspect-video w-full bg-neutral-900 overflow-hidden">
                   <Image
                     src={thumbUrl}
-                    alt={video.altText || video.title}
+                    alt={video.altText || displayTitle}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 brightness-95"
@@ -95,13 +144,13 @@ export const CampusLifeSection: React.FC<CampusLifeSectionProps> = ({ videos }) 
 
                 {/* Video Info Bottom Area */}
                 <div className="p-4 flex-1 flex flex-col justify-between space-y-2">
-                  <h3 className="text-sm font-bold text-[#3D221B] group-hover:text-[#5A1D16] transition-colors line-clamp-2 leading-snug">
-                    {video.title}
+                  <h3 className="text-sm font-bold text-[#3D221B] group-hover:text-[#5A1D16] transition-colors line-clamp-2 overflow-hidden leading-snug">
+                    {displayTitle}
                   </h3>
                   <div className="flex items-center justify-between text-xs text-[#6F6864] pt-1 border-t border-[rgba(90,29,22,0.06)]">
                     <span className="font-medium text-[#E9B13A] flex items-center gap-1">
                       <Video className="w-3.5 h-3.5" />
-                      Classroom Practicum
+                      Hands-On Activity
                     </span>
                     <span className="font-semibold text-[#5A1D16] group-hover:underline">
                       Watch Video →

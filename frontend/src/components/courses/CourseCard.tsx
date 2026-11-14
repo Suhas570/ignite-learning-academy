@@ -81,7 +81,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({
         {/* Ignite Logo Watermark */}
         <div className="absolute bottom-2 right-2 z-10 pointer-events-none">
           <Image
-            src="/logo.png"
+            src="/ignite-logo-1.png"
             alt="Ignite Logo"
             width={48}
             height={48}
@@ -109,7 +109,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({
         <div className="pt-3 border-t border-[rgba(90,29,22,0.08)] flex items-center justify-between">
           <span className="text-xs text-[#6F6864] flex items-center gap-1">
             <MapPin className="w-3 h-3 text-[#E9B13A]" />
-            <span>Bangalore Campus</span>
+            <span>Bengaluru &amp; Pune</span>
           </span>
 
           <Link

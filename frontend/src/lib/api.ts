@@ -58,7 +58,7 @@ export function resolveMediaUrl(url?: string): string {
   if (url.startsWith("http://") || url.startsWith("https://")) {
     return url;
   }
-  if (url.startsWith("/gallery/") || url.startsWith("/hero/") || url.startsWith("/logo") || url.startsWith("/images/")) {
+  if (url.startsWith("/gallery/") || url.startsWith("/hero/") || url.startsWith("/logo") || url.startsWith("/images/") || url.startsWith("/videos/")) {
     return url;
   }
   const cleanBase = API_BASE_URL.replace(/\/+$/, "");
@@ -133,7 +133,7 @@ export function getVideoThumbnail(item: MediaItem): string {
     return resolveMediaUrl(item.url);
   }
 
-  return "/logo.png";
+  return "/ignite-logo-1.png";
 }
 
 /**
@@ -164,9 +164,9 @@ export async function getPublishedPhotos(): Promise<MediaItem[]> {
         !item.filename?.endsWith(".mp4") &&
         Boolean(
           item.url &&
-            (item.url.startsWith("http://") ||
-              item.url.startsWith("https://") ||
-              item.url.startsWith("/gallery/"))
+          (item.url.startsWith("http://") ||
+            item.url.startsWith("https://") ||
+            item.url.startsWith("/gallery/"))
         )
     );
   } catch (error) {
@@ -276,33 +276,38 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
 }
 
 /**
- * Fetches the 4 latest published videos from Payload API for the Home page Campus Life section.
+ * Fetches up to `limit` latest published videos from Payload API for the Home page Campus Life section.
  */
 export async function getCampusLifeVideos(limit = 4): Promise<MediaItem[]> {
   try {
-    const query = new URLSearchParams({
-      "where[status][equals]": "published",
-      "where[mediaType][equals]": "Video",
-      sort: "-order,-createdAt",
-      limit: String(limit),
-    });
+    try {
+      const query = new URLSearchParams({
+        "where[status][equals]": "published",
+        "where[mediaType][in]": "video,Video",
+        sort: "-order,-createdAt",
+        limit: String(limit),
+      });
 
-    const res = await fetch(`${API_BASE_URL}/api/media?${query.toString()}`, {
-      next: { revalidate: 60, tags: ['media'] },
-    });
+      const res = await fetch(`${API_BASE_URL}/api/media?${query.toString()}`, {
+        next: { revalidate: 60, tags: ['media'] },
+      });
 
-    if (res.ok) {
-      const data: PaginatedMedia = await res.json();
-      if (data.docs && data.docs.length > 0) {
-        return data.docs;
+      if (res.ok) {
+        const data: PaginatedMedia = await res.json();
+        if (data.docs && data.docs.length > 0) {
+          return data.docs.slice(0, limit);
+        }
       }
+    } catch (error) {
+      console.warn("[API] getCampusLifeVideos query failed, falling back to getPublishedVideos:", error);
     }
-  } catch (error) {
-    console.warn("[API] getCampusLifeVideos query failed, falling back to getPublishedVideos:", error);
-  }
 
-  const allVideos = await getPublishedVideos();
-  return allVideos.slice(0, limit);
+    const allVideos = await getPublishedVideos();
+    return allVideos.slice(0, limit);
+  } catch (error) {
+    console.error("[API] Error in getCampusLifeVideos:", error);
+    return [];
+  }
 }
 
 interface PayloadCourseDoc {
@@ -317,10 +322,23 @@ interface PayloadCourseDoc {
   mode?: string;
   badge?: string;
   featured?: boolean;
+  videoUrl?: string;
   syllabus?: Array<string | { module?: string; title?: string }>;
   learningOutcomes?: Array<string | { outcome?: string; title?: string }>;
   status?: string;
   [key: string]: unknown;
+}
+
+/**
+ * Truncates text cleanly on a word boundary and appends an ellipsis only when shortened.
+ */
+function truncateAtWord(text: string, maxLength: number): string {
+  const trimmed = text.trim();
+  if (trimmed.length <= maxLength) return trimmed;
+  const sliced = trimmed.slice(0, maxLength);
+  const lastSpace = sliced.lastIndexOf(" ");
+  const boundary = lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced;
+  return `${boundary.replace(/[,;:\s]+$/, "")}...`;
 }
 
 /**
@@ -335,22 +353,41 @@ function mapPayloadCourseToCourse(doc: PayloadCourseDoc): Course {
 
   const syllabusStrings: string[] = Array.isArray(doc.syllabus)
     ? doc.syllabus
-        .map((s) => (typeof s === "string" ? s : s?.module || s?.title || ""))
-        .filter(Boolean)
+      .map((s) => (typeof s === "string" ? s : s?.module || s?.title || ""))
+      .filter(Boolean)
     : [];
 
   const outcomeStrings: string[] = Array.isArray(doc.learningOutcomes)
     ? doc.learningOutcomes
-        .map((o) => (typeof o === "string" ? o : o?.outcome || o?.title || ""))
-        .filter(Boolean)
+      .map((o) => (typeof o === "string" ? o : o?.outcome || o?.title || ""))
+      .filter(Boolean)
     : [];
+
+  const isSpokenEnglishTeachers =
+    doc.slug === "communication-for-impact" ||
+    doc.slug === "public-speaking-spoken-english-for-teachers" ||
+    doc.slug === "public-speaking-and-spoken-english-for-teachers" ||
+    (doc.title && /spoken english for teachers/i.test(doc.title));
+
+  const docId = doc.id !== undefined ? String(doc.id) : "";
+  const fallbackCourse = COURSES.find(
+    (c) =>
+      (doc.slug && c.slug === doc.slug) ||
+      (docId && c.id === docId) ||
+      (isSpokenEnglishTeachers && c.id === "communication-for-impact")
+  );
+
+  const cleanDesc =
+    isSpokenEnglishTeachers && doc.description?.includes("Once enrolled, a learner")
+      ? "Once enrolled, you will complete the modules in order to earn the certificate. Throughout the course, you will develop clear pronunciation, learn to give effective instructions, build better collaboration with parents, and deliver confident lesson demonstrations."
+      : doc.description || "";
 
   return {
     id: String(doc.id || doc.slug || ""),
     slug: doc.slug || String(doc.id || ""),
     title: doc.title || "Untitled Course",
-    shortDescription: doc.shortDescription || doc.description?.slice(0, 160) || "",
-    description: doc.description || "",
+    shortDescription: doc.shortDescription || truncateAtWord(cleanDesc, 160),
+    description: cleanDesc,
     duration: doc.duration || "",
     eligibility: doc.eligibility || "Open to all qualified applicants",
     mode: doc.mode || "Hybrid Classroom & Online",
@@ -360,6 +397,8 @@ function mapPayloadCourseToCourse(doc: PayloadCourseDoc): Course {
     badge: doc.badge || (cat === "teachers" ? "Teacher Certification" : "Student Program"),
     featured: Boolean(doc.featured),
     category: cat,
+    image: fallbackCourse?.image,
+    videoUrl: doc.videoUrl || fallbackCourse?.videoUrl,
   };
 }
 
@@ -443,4 +482,48 @@ export async function getCourseBySlug(slug: string): Promise<Course | undefined>
           slug === "public-speaking-and-spoken-english-for-teachers"))
   );
 }
+
+/**
+ * Maps known video title keywords to clean display titles, or strips emojis, duplicate counters,
+ * file extensions (.mp4, .mov, .jpg, etc.), and underscores from media titles, truncating titles
+ * over 30 characters cleanly with an ellipsis.
+ */
+export function cleanMediaTitle(title?: string): string {
+  if (!title) return "";
+  const lower = title.toLowerCase();
+  if (lower.includes("parts of a plant")) return "Parts of a Plant Activity";
+  if (lower.includes("old buttons")) return "DIY Ladybug Craft";
+  if (lower.includes("straw craft")) return "Straw Weaving Craft";
+  if (lower.includes("paper plate spider")) return "Paper Plate Spider Web Craft";
+
+  const clean = title
+    .replace(/\.(mp4|mov|avi|wmv|mkv|webm|jpg|jpeg|png|webp|gif)(\s|$)/gi, " ")
+    .replace(/[\p{Extended_Pictographic}\uFE0F\u200D]/gu, "")
+    .replace(/\(\s*\d+\s*\)/g, " ")
+    .replace(/_/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (clean.length > 30) {
+    return `${clean.slice(0, 30).trimEnd()}...`;
+  }
+  return clean;
+}
+
+/**
+ * Fetches courses categorized as Teacher Training.
+ */
+export async function getTeacherCourses(): Promise<Course[]> {
+  const all = await getCourses();
+  return all.filter((c) => c.category === "teachers");
+}
+
+/**
+ * Fetches courses categorized as Student Training.
+ */
+export async function getStudentCourses(): Promise<Course[]> {
+  const all = await getCourses();
+  return all.filter((c) => c.category === "students");
+}
+
 

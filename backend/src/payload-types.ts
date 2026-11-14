@@ -200,6 +200,10 @@ export interface Enquiry {
   message: string;
   source?: ('website' | 'referral' | 'social_media' | 'campus' | 'other') | null;
   status: 'new' | 'in_progress' | 'resolved' | 'archived';
+  /**
+   * User provided explicit consent under Digital Personal Data Protection Act 2023.
+   */
+  consentGiven: boolean;
   updatedAt: string;
   createdAt: string;
 }
@@ -392,6 +396,7 @@ export interface EnquiriesSelect<T extends boolean = true> {
   message?: T;
   source?: T;
   status?: T;
+  consentGiven?: T;
   updatedAt?: T;
   createdAt?: T;
 }

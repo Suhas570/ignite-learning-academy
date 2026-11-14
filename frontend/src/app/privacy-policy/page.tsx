@@ -9,7 +9,7 @@ import { ShieldCheck, Mail, Phone, MapPin, Lock, Database } from "lucide-react";
 export const metadata: Metadata = {
   title: "Privacy Policy | Ignite Learning Academy",
   description:
-    "Learn how Ignite Learning Academy collects, handles, and protects personal information from students, parents, and teacher-training applicants in Bangalore.",
+    "Learn how Ignite Learning Academy collects, handles, and protects personal information from students, parents, and teacher-training applicants across our Bengaluru and Pune campuses.",
   alternates: {
     canonical: "https://ignitelearningacademy.in/privacy-policy",
   },
@@ -43,7 +43,7 @@ export default function PrivacyPolicyPage() {
                 Institutional Commitment
               </h2>
               <p className="text-[#6F6864]">
-                This Privacy Policy explains how <strong>Ignite Learning Academy</strong> (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;), located in Bangalore, India, collects, uses, processes, and safeguards information gathered through our public website, admissions enquiry forms, and student registration touchpoints. By using our website or submitting an inquiry, you acknowledge the practices described herein.
+                This Privacy Policy explains how <strong>Ignite Learning Academy</strong> (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;), operating across Ignite Learning Academy, Bengaluru &amp; Pune Campuses, India, collects, uses, processes, and safeguards information gathered through our public website, admissions enquiry forms, and student registration touchpoints. By using our website or submitting an enquiry, you acknowledge the practices described herein.
               </p>
             </div>
 
@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
                 Information We Collect
               </h2>
               <p>
-                We only collect personal information that you intentionally and voluntarily provide to us when submitting an admission enquiry, requesting a course syllabus, or communicating with our admissions counselors.
+                We only collect personal information that you intentionally and voluntarily provide to us when submitting an admission enquiry, requesting a course syllabus, or communicating with our admissions counsellors.
               </p>
               <ul className="space-y-2.5 pl-2">
                 <li className="flex items-start gap-2.5">
@@ -74,7 +74,7 @@ export default function PrivacyPolicyPage() {
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#E9B13A] font-bold text-lg leading-none shrink-0">•</span>
                   <span>
-                    <strong>Inquiry Details &amp; Notes:</strong> Specific questions, career goals, or training preferences entered into our enquiry forms.
+                    <strong>Enquiry Details &amp; Notes:</strong> Specific questions, career goals, or training preferences entered into our enquiry forms.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
@@ -99,9 +99,9 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-xl border border-[rgba(90,29,22,0.08)] bg-white space-y-1.5">
-                  <h3 className="font-bold text-[#5A1D16] text-sm">Admissions &amp; Academic Counseling</h3>
+                  <h3 className="font-bold text-[#5A1D16] text-sm">Admissions &amp; Academic Counselling</h3>
                   <p className="text-xs sm:text-sm text-[#6F6864]">
-                    To respond directly to your inquiries regarding curriculum, fee schedules, batch timings, and Montessori practicum requirements.
+                    To respond directly to your enquiries regarding curriculum, fee schedules, batch timings, and Montessori practicum requirements.
                   </p>
                 </div>
                 <div className="p-4 rounded-xl border border-[rgba(90,29,22,0.08)] bg-white space-y-1.5">
@@ -151,7 +151,7 @@ export default function PrivacyPolicyPage() {
                   <div>
                     <h3 className="font-bold text-[#3D221B] text-sm">Resend Email Gateway</h3>
                     <p className="text-xs text-[#6F6864] mt-0.5">
-                      Transactional emails, admission confirmations, and counseling follow-ups are routed securely via Resend using TLS-encrypted transmission channels.
+                      Transactional emails, admission confirmations, and counselling follow-ups are routed securely via Resend using TLS-encrypted transmission channels.
                     </p>
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function PrivacyPolicyPage() {
                 We implement administrative, technical, and physical measures designed to protect your personal data against unauthorized access, loss, or alteration. All web communications are encrypted via modern Transport Layer Security (TLS 1.3/HTTPS).
               </p>
               <p>
-                We retain enquiry information only for as long as necessary to complete your academic counseling, process ongoing enrollments, or comply with educational regulatory records requirements under Indian law. Inactive prospect records are periodically purged.
+                We retain enquiry information only for as long as necessary to complete your academic counselling, process ongoing enrollments, or comply with educational regulatory records requirements under Indian law. Inactive prospect records are periodically purged.
               </p>
             </div>
 
@@ -210,7 +210,7 @@ export default function PrivacyPolicyPage() {
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#E9B13A] font-bold text-lg leading-none shrink-0">•</span>
                   <span>
-                    <strong>Deletion &amp; Opt-Out:</strong> You may ask us to delete your inquiry history or opt out of admissions follow-up calls or messages at any time.
+                    <strong>Deletion &amp; Opt-Out:</strong> You may ask us to delete your enquiry history or opt out of admissions follow-up calls or messages at any time.
                   </span>
                 </li>
               </ul>
@@ -228,9 +228,9 @@ export default function PrivacyPolicyPage() {
                 Ignite Learning Academy adheres to the <strong>Digital Personal Data Protection Act 2023 (DPDP Act 2023)</strong> of India. Personal data provided through our admissions enquiry forms, campus registrations, and contact channels is collected exclusively with explicit, affirmative consent.
               </p>
               <p>
-                All personal data is processed solely for academic admissions counseling, course syllabus delivery, student enrollment, and essential administrative updates. Users have the right to withdraw their consent or request complete erasure of their personal information at any time by contacting our administration at{" "}
-                <a href="mailto:ignitelearningacademy8@gmail.com" className="font-semibold underline text-[#5A1D16] hover:text-[#6B241A]">
-                  ignitelearningacademy8@gmail.com
+                All personal data is processed solely for academic admissions counselling, course syllabus delivery, student enrollment, and essential administrative updates. Users have the right to withdraw their consent or request complete erasure of their personal information at any time by contacting our administration at{" "}
+                <a href="mailto:sophiaraymond19@gmail.com" className="font-semibold underline text-[#5A1D16] hover:text-[#6B241A]">
+                  sophiaraymond19@gmail.com
                 </a>.
               </p>
               <div className="p-4 rounded-xl border border-amber-200 bg-amber-50/70 text-xs sm:text-sm text-[#3D221B]">
@@ -243,7 +243,7 @@ export default function PrivacyPolicyPage() {
             {/* Section 7: Contact Information */}
             <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[rgba(90,29,22,0.15)] shadow-sm space-y-4">
               <h2 className="text-lg sm:text-xl font-bold text-[#3D221B]">
-                Questions or Privacy Inquiries?
+                Questions or Privacy Enquiries?
               </h2>
               <p className="text-[#6F6864]">
                 If you have questions regarding this Privacy Policy, wish to exercise your data rights, or want to update your communication preferences, please reach out directly to our administration office:
@@ -251,8 +251,8 @@ export default function PrivacyPolicyPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm">
                 <div className="flex items-center gap-2.5 text-[#3D221B]">
                   <Mail className="w-4 h-4 text-[#5A1D16]" />
-                  <a href="mailto:ignitelearningacademy8@gmail.com" className="hover:text-[#5A1D16] font-medium underline">
-                    ignitelearningacademy8@gmail.com
+                  <a href="mailto:sophiaraymond19@gmail.com" className="hover:text-[#5A1D16] font-medium underline">
+                    sophiaraymond19@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-2.5 text-[#3D221B]">
@@ -263,7 +263,7 @@ export default function PrivacyPolicyPage() {
                 </div>
                 <div className="sm:col-span-2 flex items-start gap-2.5 text-[#6F6864]">
                   <MapPin className="w-4 h-4 text-[#5A1D16] shrink-0 mt-0.5" />
-                  <span>Ignite Learning Academy Campus, Tech City Knowledge Corridor, Bangalore, Karnataka, India</span>
+                  <span>Ignite Learning Academy, Bengaluru &amp; Pune Campuses, India</span>
                 </div>
               </div>
             </div>

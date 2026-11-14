@@ -14,6 +14,7 @@ export interface Course {
   featured?: boolean;
   category?: "students" | "teachers";
   image?: string;
+  videoUrl?: string;
 }
 
 export const COURSES: Course[] = [
@@ -28,6 +29,7 @@ export const COURSES: Course[] = [
     featured: true,
     category: "students",
     image: "/images/courses/speaking-juniors.jpg",
+    videoUrl: "/videos/courses/speaking-juniors.mp4",
     shortDescription:
       "Nurture natural stage confidence, clear articulation, expressive body language, and creative storytelling in a fun, supportive atmosphere.",
     description:
@@ -56,6 +58,7 @@ export const COURSES: Course[] = [
     featured: true,
     category: "students",
     image: "/images/courses/speaking-seniors.jpg",
+    videoUrl: "/videos/courses/speaking-seniors.mp4",
     shortDescription:
       "Master parliamentary debate, persuasive rhetoric, TED-style keynote delivery, and compelling on-stage argumentation for teens.",
     description:
@@ -84,6 +87,7 @@ export const COURSES: Course[] = [
     featured: true,
     category: "students",
     image: "/images/courses/life-skills-juniors.jpg",
+    videoUrl: "/videos/courses/life-skills-juniors.mp4",
     shortDescription:
       "Develop emotional intelligence, positive friendship habits, healthy self-regulation, empathy, and everyday creative problem-solving.",
     description:
@@ -126,6 +130,7 @@ export const COURSES: Course[] = [
     featured: true,
     category: "students",
     image: "/images/courses/life-skills-seniors.jpg",
+    videoUrl: "/videos/courses/life-skills-seniors.mp4",
     shortDescription:
       "Crucial real-world preparedness: personal finance, time management, critical thinking, stress resilience, and self-leadership.",
     description:
@@ -172,13 +177,14 @@ export const COURSES: Course[] = [
     featured: true,
     category: "teachers",
     image: "/images/courses/ntt.jpg",
+    videoUrl: "/videos/courses/ntt-nursery-teacher-training.mp4",
     shortDescription:
       "Develop socially aware teachers who understand child psychology, are sensitive to individual needs, and can provide appropriate educational and personal support in early childhood settings.",
     description:
       "The Nursery Teachers Training (NTT) program at Ignite Learning Academy is an intensive diploma. Designed in alignment with National Education Policy (NEP 2020) foundational stage guidelines, this program empowers educators with deep developmental psychology insights, multi-sensory curriculum design, phonics, and hands-on classroom practicums.",
     duration: "6 Months / 1 Year",
     eligibility: "10+2 / Higher Secondary in any stream (Graduation preferred)",
-    mode: "Hybrid (Online Theory + Weekend Practical Practicum in Bangalore)",
+    mode: "Hybrid (Online Theory + Weekend Classroom Practicum in Bengaluru & Pune)",
     syllabus: [
       "Module 1: Child Psychology & Development",
       "Module 2: Child Care & Health",
@@ -210,12 +216,13 @@ export const COURSES: Course[] = [
     featured: true,
     category: "teachers",
     image: "/images/courses/speaking-english2.jpg",
+    videoUrl: "/videos/courses/speaking-english.mp4",
     shortDescription:
-      "This course is designed to be completed in six consecutive weeks. Once enrolled, a learner completes the modules in sequence to earn a Certificate.",
+      "Master clear pronunciation, classroom instructions, parent collaboration, and confident lesson demonstrations in six weeks.",
     description:
-      "Public Speaking & Spoken English for Teachers is an intensive 6-week professional accelerator designed specifically for educators, tutors, and academic leaders. This course is designed to be completed in six consecutive weeks. Once enrolled, a learner completes the modules in sequence to earn a Certificate, mastering clear pronunciation, classroom instructions, parent-teacher collaboration, and confident lesson demonstrations.",
+      "Once enrolled, you will complete the modules in order to earn the certificate. Throughout the course, you will develop clear pronunciation, learn to give effective instructions, build better collaboration with parents, and deliver confident lesson demonstrations.",
     duration: "6 Weeks",
-    eligibility: "Open to educators, student mentors, daycare administrators, and educational counselors",
+    eligibility: "Open to educators, student mentors, daycare administrators, and educational counsellors",
     mode: "Live Interactive Online Sessions + Practical Speech Lab",
     syllabus: [
       "Module 1: Building English Foundations",
@@ -250,10 +257,11 @@ export const COURSES: Course[] = [
     featured: true,
     category: "teachers",
     image: "/images/courses/teacher-training-certificate.jpg",
+    videoUrl: "/videos/courses/teacher-training-certificate.mp4",
     shortDescription:
       "Fast-track 3-month certificate in contemporary pedagogy, child-centric classroom design, active learning aids, and student assessment.",
     description:
-      "The Teachers Training Certificate Program is a focused 3-month curriculum for educators eager to modernize their teaching practice. Covering constructivist learning models, active learning games, formative assessment strategies, and technology-assisted classroom aids, this program provides modern pedagogical techniques to thrive in 21st-century classrooms.",
+      "The Teachers Training Certificate Program is a focused 3-month curriculum for educators eager to modernize their teaching practice. Covering constructivist learning models, active learning games, formative assessment strategies, and technology-assisted classroom aids, this program equips educators with practical pedagogical techniques to thrive in 21st-century classrooms.",
     duration: "3 Months (12 Weeks)",
     eligibility: "Working preschool teachers, day-care facilitators, or graduates pursuing early education",
     mode: "Online with Hands-On Weekend Material Workshops",
@@ -309,7 +317,7 @@ export const COURSES: Course[] = [
     description:
       "A comprehensive communication masterclass for educators wanting to refine their voice, master classroom storytelling, and lead collaborative parent dialogues.",
     duration: "6 Weeks",
-    eligibility: "Open to educators, student mentors, daycare administrators, and educational counselors",
+    eligibility: "Open to educators, student mentors, daycare administrators, and educational counsellors",
     mode: "Live Interactive Online Sessions + Practical Speech Lab",
     modules: [
       "Verbal & Non-Verbal Communication",

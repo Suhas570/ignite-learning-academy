@@ -22,12 +22,12 @@ const SLIDES: SlideData[] = [
   {
     id: 1,
     image: "/hero/teacher-training-seminar.jpg",
-    alt: "Educator conducting early childhood teacher training seminar at Ignite Learning Academy Bangalore",
+    alt: "Educator conducting early childhood teacher training seminar at Ignite Learning Academy Bengaluru",
     badge: "Admissions Open 2026 Batches",
     headline: "Igniting Potential. Inspiring Growth.",
     highlight: "Empowering Futures.",
     description:
-      "Bangalore's premier institute for accredited Nursery Teachers Training (NTT) diplomas, experiential pedagogy, and transformative student public speaking & life skills.",
+      "Premier institute in Bengaluru and Pune for accredited Nursery Teachers Training (NTT) diplomas, experiential pedagogy, and student public speaking & life skills.",
   },
   {
     id: 2,
@@ -47,7 +47,7 @@ const SLIDES: SlideData[] = [
     headline: "Hands-On Pedagogy & NEP 2020",
     highlight: "Classroom Practicums.",
     description:
-      "Master sensory inquiry, Montessori methods, and inclusive early education with flexible weekend batches and guaranteed partner school internships in Bangalore.",
+      "Master sensory inquiry, Montessori methods, and inclusive early education with flexible weekend batches and guaranteed partner school internships across Bengaluru and Pune.",
   },
 ];
 

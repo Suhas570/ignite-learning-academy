@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { MediaItem, resolveMediaUrl, getVideoThumbnail } from "@/lib/api";
+import { MediaItem, resolveMediaUrl, getVideoThumbnail, cleanMediaTitle } from "@/lib/api";
 
 interface MediaCardProps {
   item: MediaItem;
@@ -20,7 +20,7 @@ export const MediaCard: React.FC<MediaCardProps> = ({
   const isVideo = item.mediaType?.toLowerCase() === "video" || Boolean(item.videoUrl) || Boolean(item.filename && item.filename.endsWith(".mp4"));
   const thumbnailUrl = isVideo
     ? getVideoThumbnail(item)
-    : resolveMediaUrl(item.url) || "/logo.png";
+    : resolveMediaUrl(item.url) || "/ignite-logo-1.png";
 
   const categoryLabelMap: Record<string, string> = {
     general: "General",
@@ -42,7 +42,8 @@ export const MediaCard: React.FC<MediaCardProps> = ({
   };
 
   const [imageError, setImageError] = React.useState(false);
-  const displayThumbnail = imageError ? "/logo.png" : thumbnailUrl;
+  const displayThumbnail = imageError ? "/ignite-logo-1.png" : thumbnailUrl;
+  const displayTitle = cleanMediaTitle(item.title);
 
   return (
     <div
@@ -50,14 +51,14 @@ export const MediaCard: React.FC<MediaCardProps> = ({
       tabIndex={0}
       onClick={() => onClick?.(item)}
       onKeyDown={handleKeyDown}
-      aria-label={`View ${isVideo ? "video" : "image"}: ${item.title}`}
+      aria-label={`View ${isVideo ? "video" : "image"}: ${displayTitle}`}
       className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white border border-[rgba(90,29,22,0.1)] shadow-[0_10px_30px_rgba(46,26,20,0.06)] hover:shadow-[0_18px_40px_rgba(90,29,22,0.14)] hover:-translate-y-1 transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5A1D16] ${className}`}
     >
       {/* Thumbnail Aspect Container */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#FFF8F5]">
         <Image
           src={displayThumbnail}
-          alt={item.altText || item.title}
+          alt={item.altText || displayTitle}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
@@ -90,11 +91,11 @@ export const MediaCard: React.FC<MediaCardProps> = ({
 
       {/* Card Content Footer */}
       <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-2">
-        <h3 className="text-base sm:text-lg font-bold text-[#3D221B] group-hover:text-[#5A1D16] transition-colors line-clamp-2">
-          {item.title}
+        <h3 className="text-base sm:text-lg font-bold text-[#3D221B] group-hover:text-[#5A1D16] transition-colors line-clamp-2 overflow-hidden">
+          {displayTitle}
         </h3>
         {item.description && (
-          <p className="text-xs text-[#6F6864] line-clamp-2 leading-relaxed">
+          <p className="text-xs text-[#6F6864] line-clamp-2 overflow-hidden leading-relaxed">
             {item.description}
           </p>
         )}

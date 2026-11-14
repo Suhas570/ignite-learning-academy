@@ -2,16 +2,23 @@
 
 import React, { useState, useEffect } from "react";
 
-const FALLBACK_WHATSAPP_NUMBER = "9011901930";
+const FALLBACK_WHATSAPP_NUMBER = "919011901930";
+
+function normalizeWhatsAppNumber(raw: string): string {
+  const digits = raw.replace(/[^0-9]/g, "");
+  return digits.length === 10 ? `91${digits}` : digits;
+}
 
 interface WhatsAppButtonProps {
   initialNumber?: string;
 }
 
 export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ initialNumber }) => {
-  const [whatsappNumber, setWhatsappNumber] = useState<string>(
-    initialNumber || FALLBACK_WHATSAPP_NUMBER
-  );
+  const [whatsappNumber, setWhatsappNumber] = useState<string>(() => {
+    if (!initialNumber) return FALLBACK_WHATSAPP_NUMBER;
+    const normalized = normalizeWhatsAppNumber(initialNumber);
+    return normalized.length >= 10 ? normalized : FALLBACK_WHATSAPP_NUMBER;
+  });
 
   useEffect(() => {
     let isMounted = true;
@@ -27,8 +34,7 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ initialNumber })
           const data = await res.json();
           const rawNumber = data?.whatsappNumber || data?.result?.whatsappNumber;
           if (rawNumber && isMounted) {
-            // Clean non-digits (remove + - space)
-            const digits = String(rawNumber).replace(/[^0-9]/g, "");
+            const digits = normalizeWhatsAppNumber(String(rawNumber));
             if (digits.length >= 10) {
               setWhatsappNumber(digits);
             }
